@@ -78,7 +78,6 @@
         <section class="resume-section" id="empresa">
             <div class="resume-section-content">
                 <h2 class="mb-3">Información Empresa</h2>
-                <button onclick="prueba()">prueba</button>
                 <div class="container">
                     <form action="" method="post" id="formularioEmpresa">
                         <!-- card tipo empresa -->

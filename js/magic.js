@@ -68,16 +68,25 @@ function segunSectorEconomico(data) {
         })
             .then(result => result.json())
             .then(data => {
-                // console.log(data)
+                // console.log(data.nombreOpcion)
                 let texthtml = '';
                 opcionesSectorEco.innerHTML = '';
 
-                for (const value of data) {
-                    opcionesSectorEco.innerHTML += `<option value="">${value.nombreOpcion}</option>`;
-                    texthtml = value.nombreCategoria;
+                if(data.nombreOpcion != 'empty'){
+                    for (const value of data) {
+                        opcionesSectorEco.removeAttribute("disabled", "");
+                        opcionesSectorEco.setAttribute("active", "");
+                        opcionesSectorEco.innerHTML += `<option value="">${value.nombreOpcion}</option>`;
+                        texthtml = value.nombreCategoria;
+                    }
+                } else {
+                    texthtml = 'Sin opciones'
+                    opcionesSectorEco.removeAttribute("active", "");
+                    opcionesSectorEco.setAttribute("disabled", "");
+                    opcionesSectorEco.innerHTML += `<option selected disabled value="">--Sin opciones--</option>`;
                 }
-                opcionSectorEco.innerHTML = texthtml;
 
+                opcionSectorEco.innerHTML = texthtml;
             })
-    })
+    });
 }
