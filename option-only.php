@@ -17,5 +17,3 @@ echo json_encode($result, JSON_UNESCAPED_UNICODE);
 // print_r($result);
 // echo "</pre>";
 
-echo "prueba de git";
-
