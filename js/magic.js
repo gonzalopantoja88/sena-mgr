@@ -10,6 +10,9 @@ const objetoSocial = document.querySelector('#objetoSocial');
 const sectorEconomico = document.querySelector('#sectorEconomico');
 const opcionSectorEco = document.querySelector('#opcionSectorEco');
 const opcionesSectorEco = document.querySelector('#opcionesSectorEco');
+const propietarios = document.querySelector('#propietarios');
+const tipoPersona = document.querySelector('#tipoPersona');
+const opTipoPersona = document.querySelector('#opcionTipoPersona');
 
 fetch('./category.php')
     .then(result => result.json())
@@ -19,6 +22,7 @@ fetch('./category.php')
         segunDimension(data);
         segunObjetoSocial(data);
         segunSectorEconomico(data);
+        segunNumPropietarios(data);
     })
 
 function segunOrigen(data) {
@@ -88,5 +92,51 @@ function segunSectorEconomico(data) {
 
                 opcionSectorEco.innerHTML = texthtml;
             })
+    });
+}
+
+function segunNumPropietarios(data) {
+    for (const value of data) {
+        if (value.ID_FK_Despliegue == 78) {
+            // console.log(value.nombreCategoria)
+            propietarios.innerHTML += `<option value="${value.ID_Categoria}">${value.nombreCategoria}</option>`;
+        }
+    }
+
+    propietarios.addEventListener('change', function (op) {
+        let opcion = op.target.value;
+        let dataSelect = new FormData();
+        dataSelect.append('ID_FK_Categoria', opcion);
+
+        fetch('./option-only.php', {
+            method: 'POST',
+            mode: 'no-cors',
+            body: dataSelect
+        })
+            .then(result => result.json())
+            .then(data => {
+                // console.log(data.nombreOpcion)
+                let texthtml = '';
+                tipoPersona.innerHTML = '';
+
+                if(data.nombreOpcion != 'empty'){
+                    for (const value of data) {
+                        tipoPersona.removeAttribute("disabled", "");
+                        tipoPersona.setAttribute("active", "");
+                        tipoPersona.innerHTML += `<option value="">${value.nombreOpcion}</option>`;
+                        texthtml = value.nombreCategoria;
+                    }
+                } else {
+                    texthtml = 'Sin opciones'
+                    tipoPersona.removeAttribute("active", "");
+                    tipoPersona.setAttribute("disabled", "");
+                    tipoPersona.innerHTML += `<option selected disabled value="">--Sin opciones--</option>`;
+                }
+
+                opTipoPersona.innerHTML = texthtml;
+            })
+
+
+
     });
 }

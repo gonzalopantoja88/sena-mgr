@@ -123,19 +123,13 @@
                                     <div class="col-lg-3 col-12">
                                         <label class="form-label m-0" for="propietarios">Propietarios</label>
                                         <select class="form-select" id="propietarios" name="propietarios" aria-label="Propietarios">
-                                            <option value="">Persona natural</option>
-                                            <option value="">Persona jurídica</option>
+                                            <option selected disabled> --Seleccionar-- </option>
                                         </select>
                                     </div>
                                     <div class="col-lg-3 col-12">
-                                        <label class="form-label m-0" for="sectorEconomico">Persona - <?php echo " Aqui php" ?></label>
-                                        <select class="form-select" id="sectorEconomico" name="sectorEconomico" aria-label="Sector economico">
-                                            <option value="">Colectiva</option>
-                                            <option value="">Sociedad limitada</option>
-                                            <option value="">Sociedad anónima</option>
-                                            <option value="">Sociedad por acción simplificada</option>
-                                            <option value="">Sociedad comandita simple</option>
-                                            <option value="">Sociedad comandita por acciones</option>
+                                        <label class="form-label m-0" for="tipoPersona" id="opcionTipoPersona">Persona</label>
+                                        <select class="form-select" id="tipoPersona" name="tipoPersona" aria-label="Tipo persona">
+                                            <option selected disabled> --Seleccionar-- </option>
                                         </select>
                                     </div>
                                 </div>
