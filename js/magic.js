@@ -4,6 +4,10 @@
 
 // let namejs = document.querySelector('#prueba').value;
 
+const removeAccents = (str) => {
+    return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}
+
 const origenCapital = document.querySelector('#origenCapital');
 const dimension = document.querySelector('#dimension');
 const objetoSocial = document.querySelector('#objetoSocial');
@@ -13,6 +17,11 @@ const opcionesSectorEco = document.querySelector('#opcionesSectorEco');
 const propietarios = document.querySelector('#propietarios');
 const tipoPersona = document.querySelector('#tipoPersona');
 const opTipoPersona = document.querySelector('#opcionTipoPersona');
+const tangibles = document.querySelector('#tangibles');
+const bienes = document.querySelector('#bienes');
+const opBienes = document.querySelector('#opcionBienes');
+const intangibles = document.querySelector('#intangibles');
+const fichaTec = document.querySelector('#fichaTec');
 
 fetch('./category.php')
     .then(result => result.json())
@@ -23,11 +32,14 @@ fetch('./category.php')
         segunObjetoSocial(data);
         segunSectorEconomico(data);
         segunNumPropietarios(data);
+        productoTangible(data);
+        productoIntangible(data);
+        fichaTecnica(data);
     })
 
 function segunOrigen(data) {
     for (const value of data) {
-        if (value.ID_FK_Despliegue == 74) {
+        if (value.ID_FK_Despliegue == 1) {
             // console.log(value.nombreCategoria)
             origenCapital.innerHTML += `<option value="">${value.nombreCategoria}</option>`;
         }
@@ -36,7 +48,7 @@ function segunOrigen(data) {
 
 function segunDimension(data) {
     for (const value of data) {
-        if (value.ID_FK_Despliegue == 75) {
+        if (value.ID_FK_Despliegue == 2) {
             // console.log(value.nombreCategoria)
             dimension.innerHTML += `<option value="">${value.nombreCategoria}</option>`;
         }
@@ -45,7 +57,7 @@ function segunDimension(data) {
 
 function segunObjetoSocial(data) {
     for (const value of data) {
-        if (value.ID_FK_Despliegue == 76) {
+        if (value.ID_FK_Despliegue == 3) {
             // console.log(value.nombreCategoria)
             objetoSocial.innerHTML += `<option value="">${value.nombreCategoria}</option>`;
         }
@@ -54,7 +66,7 @@ function segunObjetoSocial(data) {
 
 function segunSectorEconomico(data) {
     for (const value of data) {
-        if (value.ID_FK_Despliegue == 77) {
+        if (value.ID_FK_Despliegue == 4) {
             // console.log(value.nombreCategoria)
             sectorEconomico.innerHTML += `<option value="${value.ID_Categoria}">${value.nombreCategoria}</option>`;
         }
@@ -76,7 +88,7 @@ function segunSectorEconomico(data) {
                 let texthtml = '';
                 opcionesSectorEco.innerHTML = '';
 
-                if(data.nombreOpcion != 'empty'){
+                if (data.nombreOpcion != 'empty') {
                     for (const value of data) {
                         opcionesSectorEco.removeAttribute("disabled", "");
                         opcionesSectorEco.setAttribute("active", "");
@@ -97,7 +109,7 @@ function segunSectorEconomico(data) {
 
 function segunNumPropietarios(data) {
     for (const value of data) {
-        if (value.ID_FK_Despliegue == 78) {
+        if (value.ID_FK_Despliegue == 5) {
             // console.log(value.nombreCategoria)
             propietarios.innerHTML += `<option value="${value.ID_Categoria}">${value.nombreCategoria}</option>`;
         }
@@ -119,7 +131,7 @@ function segunNumPropietarios(data) {
                 let texthtml = '';
                 tipoPersona.innerHTML = '';
 
-                if(data.nombreOpcion != 'empty'){
+                if (data.nombreOpcion != 'empty') {
                     for (const value of data) {
                         tipoPersona.removeAttribute("disabled", "");
                         tipoPersona.setAttribute("active", "");
@@ -135,8 +147,137 @@ function segunNumPropietarios(data) {
 
                 opTipoPersona.innerHTML = texthtml;
             })
-
-
-
     });
 }
+
+function productoTangible(data) {
+    for (const value of data) {
+        if (value.ID_FK_Despliegue == 6) {
+            // console.log(value.nombreCategoria)
+            tangibles.innerHTML += `<option value="${value.ID_Categoria}">${value.nombreCategoria}</option>`;
+        }
+    }
+
+    tangibles.addEventListener('change', function (op) {
+        let opcion = op.target.value;
+        let dataSelect = new FormData();
+        dataSelect.append('ID_FK_Categoria', opcion);
+
+        fetch('./option-only.php', {
+            method: 'POST',
+            mode: 'no-cors',
+            body: dataSelect
+        })
+            .then(result => result.json())
+            .then(data => {
+                // console.log(data.nombreOpcion)
+                let texthtml = '';
+                bienes.innerHTML = '';
+
+                if (data.nombreOpcion != 'empty') {
+                    for (const value of data) {
+                        bienes.removeAttribute("disabled", "");
+                        bienes.setAttribute("active", "");
+                        bienes.innerHTML += `<option value="">${value.nombreOpcion}</option>`;
+                        texthtml = value.nombreCategoria;
+                    }
+                } else {
+                    texthtml = 'Sin opciones'
+                    bienes.removeAttribute("active", "");
+                    bienes.setAttribute("disabled", "");
+                    bienes.innerHTML += `<option selected disabled value="">--Sin opciones--</option>`;
+                }
+
+                opBienes.innerHTML = texthtml;
+            })
+    });
+}
+
+function productoIntangible(data) {
+    for (const value of data) {
+        if (value.ID_FK_Despliegue == 7) {
+            // console.log(value.nombreCategoria)
+            intangibles.innerHTML += `<option value="">${value.nombreCategoria}</option>`;
+        }
+    }
+}
+
+
+fetch('./deployment.php')
+    .then(result => result.json())
+    .then(data => {
+        // console.log(data)
+        fichaTecnica(data);
+    })
+
+const colA = document.querySelector("#colA");
+const colB = document.querySelector("#colB");
+const colC = document.querySelector("#colC");
+
+function fichaTecnica(data) {
+    let countColA = 0;
+    let countColC = 0;
+    let count = 1;
+
+    for (const value of data) {
+        if (value.ID_FK_Variable == 3) {
+
+            let strDirty = removeAccents(value.nombreDespliegue);
+            let strClean = strDirty.replace(/ /g, '').toLowerCase();;
+
+            if (count % 2 != 0 && countColA <= countColC) {
+                colA.innerHTML +=
+                    `<div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="${strClean}" id="${strClean}" value="${value.nombreDespliegue}">
+                <label class="form-check-label" for="${strClean}">${value.nombreDespliegue}</label>
+                </div>`
+                count++;
+                countColA++;
+
+            } else if (count % 2 != 0 && countColA > countColC) {
+                colC.innerHTML +=
+                    `<div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="${strClean}" id="${strClean}" value="${value.nombreDespliegue}">
+                <label class="form-check-label" for="${strClean}">${value.nombreDespliegue}</label>
+                </div>`
+                countColC++;
+
+            } else {
+                colB.innerHTML +=
+                    `<div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="${strClean}" id="${strClean}" value="${value.nombreDespliegue}">
+                <label class="form-check-label" for="${strClean}">${value.nombreDespliegue}</label>
+                </div>`
+                count++;
+            }
+        }
+    }
+}
+
+// condicion para agregar elementos en 2 columnas
+// function fichaTecnica(data) {
+//     let count = 1;
+//     for (const value of data) {
+//         if (value.ID_FK_Variable == 3) {
+//             if ( count % 2 != 0){
+//                 colA.innerHTML +=
+//                     `<div class="form-check form-check-inline">
+//                     <input class="form-check-input" type="checkbox">
+//                     <label class="form-check-label">${value.nombreDespliegue}</label>
+//                 </div> `
+//                 count++
+//             } else {
+//                 colB.innerHTML +=
+//                     `<div class="form-check form-check-inline">
+//                     <input class="form-check-input" type="checkbox">
+//                     <label class="form-check-label">${value.nombreDespliegue}</label>
+//                 </div> `
+//                 count++
+//             } 
+//         }
+//     }
+// }
+
+
+
+

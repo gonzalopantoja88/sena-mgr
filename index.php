@@ -102,7 +102,7 @@
                                     <div class="col-lg-3 col-12">
                                         <label class="form-label m-0" for="objetoSocial">Objeto social</label>
                                         <select class="form-select" id="objetoSocial" name="objetoSocial" aria-label="Objeto social">
-                                            <option selected disabled> --Seleccionar-- </option>                                            
+                                            <option selected disabled> --Seleccionar-- </option>
                                         </select>
                                     </div>
                                 </div>
@@ -116,8 +116,8 @@
                                     </div>
                                     <div class="col-lg-3 col-12">
                                         <label class="form-label m-0" for="opcionesSectorEco" id="opcionSectorEco">Sector</label>
-                                        <select class="form-select" id="opcionesSectorEco" name="opcionesSectorEco" aria-label="Opcion sector economico">
-                                            <option selected disabled> --Seleccionar-- </option>
+                                        <select disabled class="form-select" id="opcionesSectorEco" name="opcionesSectorEco" aria-label="Opcion sector economico">
+                                            <!-- <option selected disabled> --Seleccionar-- </option> -->
                                         </select>
                                     </div>
                                     <div class="col-lg-3 col-12">
@@ -128,15 +128,15 @@
                                     </div>
                                     <div class="col-lg-3 col-12">
                                         <label class="form-label m-0" for="tipoPersona" id="opcionTipoPersona">Persona</label>
-                                        <select class="form-select" id="tipoPersona" name="tipoPersona" aria-label="Tipo persona">
-                                            <option selected disabled> --Seleccionar-- </option>
+                                        <select disabled class="form-select" id="tipoPersona" name="tipoPersona" aria-label="Tipo persona">
+                                            <!-- <option selected disabled> --Seleccionar-- </option> -->
                                         </select>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <!-- card tipo producto -->
-                        <div class="card">
+                        <div class="card mb-3">
                             <div class="card-header">
                                 <div class="subheading">Tipo de producto</div>
                             </div>
@@ -145,23 +145,46 @@
                                     <div class="col-lg-3 col-sm-12">
                                         <label class="form-label m-0" for="tangibles">Tangibles</label>
                                         <select class="form-select" id="tangibles" name="tangibles" aria-label="Tangibles">
-                                            <option value="">Bienes de consumo</option>
-                                            <option value="">Bienes industriales</option>
+                                            <option selected disabled> --Seleccionar-- </option>
                                         </select>
                                     </div>
-                                    <div class="col-lg-4 col-sm-12">
+                                    <div class="col-lg-3 col-sm-12">
+                                        <label class="form-label m-0" for="bienes" id="opcionBienes">Bienes</label>
+                                        <select disabled class="form-select" id="bienes" name="bienes" aria-label="Bienes">
+                                            <!-- <option selected disabled> --Seleccionar-- </option> -->
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-6 col-sm-12">
                                         <label class="form-label m-0" for="intangibles">Intangibles</label>
                                         <select class="form-select" id="intangibles" name="intangibles" aria-label="Intangibles">
-                                            <option value="">Acción tangible orientado a personas</option>
-                                            <option value="">Acción tangible orientado a cosas</option>
-                                            <option value="">Acción intangible orientado a personas</option>
-                                            <option value="">Acción intangible orientado a cosas</option>
+                                            <option selected disabled> --Seleccionar-- </option>
                                         </select>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
+                        <!-- card ficha tecnica -->
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="subheading">Ficha técnica</div>
+                            </div>
+                            <div class="card-body">
+                                <div class="" id="fichaTec">
+                                    <!-- datos ficha tecnica -->
+                                    <div class="row">
+                                        <div class="col-md-4 col-12 d-flex flex-column" id="colA">
+                                            <!-- condicion colA -->
+                                        </div>
+                                        <div class="col-md-4 col-12 d-flex flex-column" id="colB">
+                                            <!-- condicion colB -->
+                                        </div>
+                                        <div class="col-md-4 col-12 d-flex flex-column" id="colC">
+                                            <!-- condicion ColC-->                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="row text-center mt-3">
                             <div class="col-12">
                                 <button class="btn btn-primary" type="submit">Guardar</button>
