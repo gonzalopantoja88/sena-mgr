@@ -22,8 +22,17 @@ const bienes = document.querySelector('#bienes');
 const opBienes = document.querySelector('#opcionBienes');
 const intangibles = document.querySelector('#intangibles');
 const fichaTec = document.querySelector('#fichaTec');
+const colA = document.querySelector("#colA");
+const colB = document.querySelector("#colB");
+const colC = document.querySelector("#colC");
 const normaTec = document.querySelector('#normaTec');
 const imgEmp = document.querySelector('#imgEmp');
+const gestCliente = document.querySelector('#gestCliente');
+const colAv = document.querySelector("#colAv");
+const colBv = document.querySelector("#colBv");
+const colCv = document.querySelector("#colCv");
+
+
 
 fetch('./category.php')
     .then(result => result.json())
@@ -212,12 +221,11 @@ fetch('./deployment.php')
         fichaTecnica(data);
         normaTecnica(data);
         imagenEmpresarial(data);
+        ventas(data);
+        gestionClientes(data);
 
     })
 
-const colA = document.querySelector("#colA");
-const colB = document.querySelector("#colB");
-const colC = document.querySelector("#colC");
 
 function fichaTecnica(data) {
     let countColA = 0;
@@ -299,6 +307,62 @@ function imagenEmpresarial(data) {
             let strClean = strDirty.replace(/ /g, '').toLowerCase();;
 
             imgEmp.innerHTML +=
+            `<div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" name="${strClean}" id="${strClean}" value="${value.nombreDespliegue}">
+            <label class="form-check-label" for="${strClean}">${value.nombreDespliegue}</label>
+            </div>`;
+        }
+    }
+}
+
+function ventas(data) {
+    let countColAv = 0;
+    let countColCv = 0;
+    let countv = 1;
+
+    for (const value of data) {
+        if (value.ID_FK_Variable == 53) {
+
+            let strDirty = removeAccents(value.nombreDespliegue);
+            let strClean = strDirty.replace(/ /g, '').toLowerCase();;
+
+            if (countv % 2 != 0 && countColAv <= countColCv) {
+                colAv.innerHTML +=
+                    `<div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="${strClean}" id="${strClean}" value="${value.nombreDespliegue}">
+                <label class="form-check-label" for="${strClean}">${value.nombreDespliegue}</label>
+                </div>`
+                countv++;
+                countColAv++;
+
+            } else if (countv % 2 != 0 && countColAv > countColCv) {
+                colCv.innerHTML +=
+                    `<div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="${strClean}" id="${strClean}" value="${value.nombreDespliegue}">
+                <label class="form-check-label" for="${strClean}">${value.nombreDespliegue}</label>
+                </div>`
+                countColCv++;
+
+            } else {
+                colBv.innerHTML +=
+                    `<div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="${strClean}" id="${strClean}" value="${value.nombreDespliegue}">
+                <label class="form-check-label" for="${strClean}">${value.nombreDespliegue}</label>
+                </div>`
+                countv++;
+            }
+        }
+    }
+}
+
+function gestionClientes(data) {
+    for (const value of data) {
+        if (value.ID_FK_Variable == 16) {
+
+            let strDirty = removeAccents(value.nombreDespliegue);
+            let strClean = strDirty.replace(/ /g, '').toLowerCase();;
+
+            gestCliente.innerHTML +=
             `<div class="form-check form-check-inline">
             <input class="form-check-input" type="checkbox" name="${strClean}" id="${strClean}" value="${value.nombreDespliegue}">
             <label class="form-check-label" for="${strClean}">${value.nombreDespliegue}</label>

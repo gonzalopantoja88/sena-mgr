@@ -183,18 +183,12 @@
                             </div>
                         </div>
                         <!-- card norma tecnica y img empresarial -->
-                        <div class="card">
+                        <div class="card mb-3">
                             <div class="card-header">
-                                <div class="subheading">...</div>
+                                <div class="subheading">Imagen y norma técnica</div>
                             </div>
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-lg-4 col-sm-12" id="normaTecnica">
-                                        <label class="form-label m-0" for="normaTec">Norma técnica</label>
-                                        <select class="form-select" id="normaTec" name="normaTec" aria-label="Norma tecnica">
-                                            <option selected disabled> --Seleccionar-- </option>
-                                        </select>
-                                    </div>
                                     <div class="col-lg-4 col-sm-12" >
                                         <div class="row">
                                             <label class="form-label m-0" for="normaTec">Imagen empresarial</label>
@@ -202,6 +196,46 @@
                                         <div class="d-flex flex-row" id="imgEmp">
                                             <!-- condicion imagen empresarial -->
                                         </div>
+                                    </div>
+                                    <div class="col-lg-4 col-sm-12" id="normaTecnica">
+                                        <label class="form-label m-0" for="normaTec">Norma técnica</label>
+                                        <select class="form-select" id="normaTec" name="normaTec" aria-label="Norma tecnica">
+                                            <option selected disabled> --Seleccionar-- </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- card ventas -->
+                        <div class="card mb-3">
+                            <div class="card-header">
+                                <div class="subheading">Ventas</div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-4 col-12 d-flex flex-column" id="colAv">
+                                        <!-- condicion colAv -->
+                                    </div>
+                                    <div class="col-md-4 col-12 d-flex flex-column" id="colBv">
+                                        <!-- condicion colBv -->
+                                    </div>
+                                    <div class="col-md-4 col-12 d-flex flex-column" id="colCv">
+                                        <!-- condicion ColCv-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- card gestión clientes-->
+                        <div class="card mb-3">
+                            <div class="card-header">
+                                <div class="subheading">Gestión clientes</div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-12 col-12 d-flex flex-row" id="gestCliente">
+                                        <!-- condicion gestion cliente -->
                                     </div>
                                 </div>
                             </div>
