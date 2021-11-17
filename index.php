@@ -164,27 +164,49 @@
                             </div>
                         </div>
                         <!-- card ficha tecnica -->
-                        <div class="card">
+                        <div class="card mb-3">
                             <div class="card-header">
                                 <div class="subheading">Ficha técnica</div>
                             </div>
                             <div class="card-body">
-                                <div class="" id="fichaTec">
-                                    <!-- datos ficha tecnica -->
-                                    <div class="row">
-                                        <div class="col-md-4 col-12 d-flex flex-column" id="colA">
-                                            <!-- condicion colA -->
+                                <div class="row">
+                                    <div class="col-md-4 col-12 d-flex flex-column" id="colA">
+                                        <!-- condicion colA -->
+                                    </div>
+                                    <div class="col-md-4 col-12 d-flex flex-column" id="colB">
+                                        <!-- condicion colB -->
+                                    </div>
+                                    <div class="col-md-4 col-12 d-flex flex-column" id="colC">
+                                        <!-- condicion ColC-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- card norma tecnica y img empresarial -->
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="subheading">...</div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-lg-4 col-sm-12" id="normaTecnica">
+                                        <label class="form-label m-0" for="normaTec">Norma técnica</label>
+                                        <select class="form-select" id="normaTec" name="normaTec" aria-label="Norma tecnica">
+                                            <option selected disabled> --Seleccionar-- </option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-4 col-sm-12" >
+                                        <div class="row">
+                                            <label class="form-label m-0" for="normaTec">Imagen empresarial</label>
                                         </div>
-                                        <div class="col-md-4 col-12 d-flex flex-column" id="colB">
-                                            <!-- condicion colB -->
-                                        </div>
-                                        <div class="col-md-4 col-12 d-flex flex-column" id="colC">
-                                            <!-- condicion ColC-->                                            
+                                        <div class="d-flex flex-row" id="imgEmp">
+                                            <!-- condicion imagen empresarial -->
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        
                         <div class="row text-center mt-3">
                             <div class="col-12">
                                 <button class="btn btn-primary" type="submit">Guardar</button>

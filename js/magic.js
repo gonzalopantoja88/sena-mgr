@@ -22,6 +22,8 @@ const bienes = document.querySelector('#bienes');
 const opBienes = document.querySelector('#opcionBienes');
 const intangibles = document.querySelector('#intangibles');
 const fichaTec = document.querySelector('#fichaTec');
+const normaTec = document.querySelector('#normaTec');
+const imgEmp = document.querySelector('#imgEmp');
 
 fetch('./category.php')
     .then(result => result.json())
@@ -208,6 +210,9 @@ fetch('./deployment.php')
     .then(data => {
         // console.log(data)
         fichaTecnica(data);
+        normaTecnica(data);
+        imagenEmpresarial(data);
+
     })
 
 const colA = document.querySelector("#colA");
@@ -277,6 +282,31 @@ function fichaTecnica(data) {
 //         }
 //     }
 // }
+
+function normaTecnica(data) {
+    for (const value of data) {
+        if (value.ID_FK_Variable == 4) {
+            normaTec.innerHTML += `<option value="">${value.nombreDespliegue}</option>`;
+        }
+    }
+}
+
+function imagenEmpresarial(data) {
+    for (const value of data) {
+        if (value.ID_FK_Variable == 5) {
+
+            let strDirty = removeAccents(value.nombreDespliegue);
+            let strClean = strDirty.replace(/ /g, '').toLowerCase();;
+
+            imgEmp.innerHTML +=
+            `<div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" name="${strClean}" id="${strClean}" value="${value.nombreDespliegue}">
+            <label class="form-check-label" for="${strClean}">${value.nombreDespliegue}</label>
+            </div>`;
+        }
+    }
+}
+
 
 
 
