@@ -32,7 +32,7 @@
                 <hr class="text-black">
                 <h4>Definir contexto</h4>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#empresa">Empresa</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experience">Sistema general</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#sistemaGeneral">Sistema general</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experience">SGC</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experience">SGA</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experience">SST</a></li>
@@ -54,8 +54,8 @@
         <section class="resume-section" id="about">
             <div class="resume-section-content">
                 <h1 class="mb-0">
-                    Clarence
-                    <span class="text-primary">Taylor</span>
+                    Gestión del
+                    <span class="text-primary">Riesgo</span>
                 </h1>
                 <div class="subheading mb-5">
                     3542 Berry Street · Cheyenne Wells, CO 80810 · (317) 585-8468 ·
@@ -66,191 +66,20 @@
                     further the overall value proposition.</p>
                 <div class="social-icons">
                     <a class="social-icon" href="#!"><i class="fab fa-linkedin-in"></i></a>
-                    <a class="social-icon" href="#!"><i class="fab fa-github"></i></a>
                     <a class="social-icon" href="#!"><i class="fab fa-twitter"></i></a>
                     <a class="social-icon" href="#!"><i class="fab fa-facebook-f"></i></a>
                 </div>
             </div>
         </section>
 
-        <hr class="m-0" />
-        <!-- Empresa-->
-        <section class="resume-section" id="empresa">
-            <div class="resume-section-content">
-                <h2 class="mb-3">Información Empresa</h2>
-                <div class="container">
-                    <form action="" method="post" id="formularioEmpresa">
-                        <!-- card tipo empresa -->
-                        <div class="card mb-3">
-                            <div class="card-header">
-                                <div class="subheading">Tipo de empresa</div>
-                            </div>
-                            <div class="card-body">
-                                <div class="row d-flex align-items-end justify-content-between mb-3">
-                                    <div class="col-lg-3 col-sm-12">
-                                        <label class="form-label m-0" for="origenCapital">Origen capital</label>
-                                        <select class="form-select" id="origenCapital" name="origenCapital" aria-label="Origen capital">
-                                            <option selected disabled> --Seleccionar-- </option>
-                                        </select>
-                                    </div>
-                                    <div class="col-lg-3 col-sm-12">
-                                        <label class="form-label m-0" for="dimension">Tamaño</label>
-                                        <select class="form-select" id="dimension" name="dimension" aria-label="dimension">
-                                            <option selected disabled> --Seleccionar-- </option>
-                                        </select>
-                                    </div>
-                                    <div class="col-lg-3 col-12">
-                                        <label class="form-label m-0" for="objetoSocial">Objeto social</label>
-                                        <select class="form-select" id="objetoSocial" name="objetoSocial" aria-label="Objeto social">
-                                            <option selected disabled> --Seleccionar-- </option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="row d-flex align-items-end justify-content-center">
-                                    <div class="col-lg-3 col-12">
-                                        <label class="form-label m-0" for="sectorEconomico">Sector económico</label>
-                                        <select class="form-select" id="sectorEconomico" name="sectorEconomico" aria-label="Sector economico">
-                                            <option selected disabled> --Seleccionar-- </option>
+        <!-- aqui seccion empresa -->
+        <?php include_once('./views/empresa.php'); ?>
 
-                                        </select>
-                                    </div>
-                                    <div class="col-lg-3 col-12">
-                                        <label class="form-label m-0" for="opcionesSectorEco" id="opcionSectorEco">Sector</label>
-                                        <select disabled class="form-select" id="opcionesSectorEco" name="opcionesSectorEco" aria-label="Opcion sector economico">
-                                            <!-- <option selected disabled> --Seleccionar-- </option> -->
-                                        </select>
-                                    </div>
-                                    <div class="col-lg-3 col-12">
-                                        <label class="form-label m-0" for="propietarios">Propietarios</label>
-                                        <select class="form-select" id="propietarios" name="propietarios" aria-label="Propietarios">
-                                            <option selected disabled> --Seleccionar-- </option>
-                                        </select>
-                                    </div>
-                                    <div class="col-lg-3 col-12">
-                                        <label class="form-label m-0" for="tipoPersona" id="opcionTipoPersona">Persona</label>
-                                        <select disabled class="form-select" id="tipoPersona" name="tipoPersona" aria-label="Tipo persona">
-                                            <!-- <option selected disabled> --Seleccionar-- </option> -->
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- card tipo producto -->
-                        <div class="card mb-3">
-                            <div class="card-header">
-                                <div class="subheading">Tipo de producto</div>
-                            </div>
-                            <div class="card-body">
-                                <div class="row d-flex align-items-end">
-                                    <div class="col-lg-3 col-sm-12">
-                                        <label class="form-label m-0" for="tangibles">Tangibles</label>
-                                        <select class="form-select" id="tangibles" name="tangibles" aria-label="Tangibles">
-                                            <option selected disabled> --Seleccionar-- </option>
-                                        </select>
-                                    </div>
-                                    <div class="col-lg-3 col-sm-12">
-                                        <label class="form-label m-0" for="bienes" id="opcionBienes">Bienes</label>
-                                        <select disabled class="form-select" id="bienes" name="bienes" aria-label="Bienes">
-                                            <!-- <option selected disabled> --Seleccionar-- </option> -->
-                                        </select>
-                                    </div>
-                                    <div class="col-lg-6 col-sm-12">
-                                        <label class="form-label m-0" for="intangibles">Intangibles</label>
-                                        <select class="form-select" id="intangibles" name="intangibles" aria-label="Intangibles">
-                                            <option selected disabled> --Seleccionar-- </option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- card ficha tecnica -->
-                        <div class="card mb-3">
-                            <div class="card-header">
-                                <div class="subheading">Ficha técnica</div>
-                            </div>
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-4 col-12 d-flex flex-column" id="colA">
-                                        <!-- condicion colA -->
-                                    </div>
-                                    <div class="col-md-4 col-12 d-flex flex-column" id="colB">
-                                        <!-- condicion colB -->
-                                    </div>
-                                    <div class="col-md-4 col-12 d-flex flex-column" id="colC">
-                                        <!-- condicion ColC-->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- card norma tecnica y img empresarial -->
-                        <div class="card mb-3">
-                            <div class="card-header">
-                                <div class="subheading">Imagen y norma técnica</div>
-                            </div>
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-lg-4 col-sm-12" >
-                                        <div class="row">
-                                            <label class="form-label m-0" for="normaTec">Imagen empresarial</label>
-                                        </div>
-                                        <div class="d-flex flex-row" id="imgEmp">
-                                            <!-- condicion imagen empresarial -->
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-sm-12" id="normaTecnica">
-                                        <label class="form-label m-0" for="normaTec">Norma técnica</label>
-                                        <select class="form-select" id="normaTec" name="normaTec" aria-label="Norma tecnica">
-                                            <option selected disabled> --Seleccionar-- </option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+        <!-- aqui seccion sistema general -->
+        <?php include_once('./views/sistema_general.php'); ?>
 
-                        <!-- card ventas -->
-                        <div class="card mb-3">
-                            <div class="card-header">
-                                <div class="subheading">Ventas</div>
-                            </div>
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-4 col-12 d-flex flex-column" id="colAv">
-                                        <!-- condicion colAv -->
-                                    </div>
-                                    <div class="col-md-4 col-12 d-flex flex-column" id="colBv">
-                                        <!-- condicion colBv -->
-                                    </div>
-                                    <div class="col-md-4 col-12 d-flex flex-column" id="colCv">
-                                        <!-- condicion ColCv-->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
-                        <!-- card gestión clientes-->
-                        <div class="card mb-3">
-                            <div class="card-header">
-                                <div class="subheading">Gestión clientes</div>
-                            </div>
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-12 col-12 d-flex flex-row" id="gestCliente">
-                                        <!-- condicion gestion cliente -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="row text-center mt-3">
-                            <div class="col-12">
-                                <button class="btn btn-primary" type="submit">Guardar</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </section>
-        <hr class="m-0" />
+
         <!-- Education-->
         <section class="resume-section" id="education">
             <div class="resume-section-content">
