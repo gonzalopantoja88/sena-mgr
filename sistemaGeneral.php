@@ -190,16 +190,24 @@
                         <!-- card tipo empresa -->
                         <div class="card mb-3">
                             <div class="card-header">
-                                <div class="subheading">Gestion por Procesos</div>
+                                <div class="subheading m2">Gestion por Procesos</div>
                             </div>
                             <div class="card-body">
-                                <div class="row d-flex align-items-end justify-content-between mb-3">
-                                    <div class="col-lg-6 col-sm-12 border-start px-3" id="Mapa_Procesos">
+                                <div class="row d-flex justify-content-between mb-3">
+                                    <div class="col-lg-4 col-sm-12 border-start px-3" id="mapaProcesos">
                                         <h5>Mapa de Procesos</h5>
                                         <!-- mapa de procesos llamado en js -->
                                     </div>
-                                    <div class="col-lg-6 col-sm-12 border-start px-3 " id="Caracterizaciones">
+                                    <div class="col-lg-8 col-sm-12 border-start px-3 " id="">
                                         <h5>Caracterizaciones</h5>
+                                        <div class="row">
+                                        <div class="col-md-6 col-12 d-flex flex-column" id="caracterizacionesCol1">
+                                            <!-- condicion colA -->
+                                        </div>
+                                        <div class="col-md-6 col-12 d-flex flex-column border-start" id="caracterizacionesCol2">
+                                            <!-- condicion colB -->
+                                        </div>
+                                    </div>
                                     </div>
                                 </div>
                             </div>
