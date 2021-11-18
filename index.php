@@ -33,12 +33,12 @@
                 <h4>Definir contexto</h4>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#empresa">Empresa</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#sistemaGeneral">Sistema general</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experience">SGC</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#">SGC</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experience">SGA</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experience">SST</a></li>
                 <hr class="text-black">
                 <h4>Identificar riesgo</h4>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills">Identificar riesgo</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#identificacionRiesgo">Identificar riesgo</a></li>
                 <hr class="text-black">
                 <h4>Gestionar riesgo</h4>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#interests">Análisis de riesgo</a></li>
@@ -77,6 +77,9 @@
 
         <!-- aqui seccion sistema general -->
         <?php include_once('./views/sistema_general.php'); ?>
+
+        <!-- aqui seccion sistema general -->
+        <?php include_once('./views/identificacion_riesgo.php'); ?>
 
 
 

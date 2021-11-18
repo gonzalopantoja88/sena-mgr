@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 17, 2021 at 08:14 PM
+-- Generation Time: Nov 18, 2021 at 06:30 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -60,7 +60,6 @@ INSERT INTO `Categoria` (`ID_Categoria`, `nombreCategoria`, `ID_FK_Despliegue`) 
 (20, 'Acción tangible orientado a las cosas', 7),
 (21, 'Acción intangible orientado a las personas', 7),
 (22, 'Acción intangible orientado a las cosas', 7),
-(44, 'Contexto externo', 35),
 (45, 'Web', 41),
 (46, 'blog', 41),
 (47, 'Facebook', 41),
@@ -293,14 +292,6 @@ INSERT INTO `Despliegue` (`ID_Despliegue`, `nombreDespliegue`, `ID_FK_Variable`)
 (27, 'Marca', 5),
 (28, 'Eslogan', 5),
 (29, 'Dependencias', 6),
-(32, 'Misión', 8),
-(33, 'Visión', 8),
-(34, 'Filosofía', 8),
-(35, 'Diagnóstico', 8),
-(36, 'DOFA', 8),
-(37, 'Objetivos', 8),
-(38, 'Estrategias', 8),
-(39, 'Indicadores', 8),
 (40, 'Venta directa', 15),
 (41, 'Internet', 15),
 (42, 'Distribuidor', 15),
@@ -425,7 +416,20 @@ INSERT INTO `Despliegue` (`ID_Despliegue`, `nombreDespliegue`, `ID_FK_Variable`)
 (161, 'Promoción', 15),
 (162, 'Presupuesto de ventas', 15),
 (163, 'Identificación clientes', 16),
-(164, 'I+D+I', 31);
+(164, 'I+D+I', 31),
+(165, 'Análisis de la competencia', 53),
+(166, 'Precio', 53),
+(167, 'Promoción', 53),
+(168, 'Presupuesto de ventas', 53),
+(169, 'Venta directa', 53),
+(170, 'Web', 53),
+(171, 'Blog', 53),
+(172, 'Facebook', 53),
+(173, 'Instagram', 53),
+(174, 'Mercado libre', 53),
+(175, 'Amazon', 53),
+(176, 'E-bay', 53),
+(177, 'OLX', 53);
 
 -- --------------------------------------------------------
 
@@ -463,7 +467,6 @@ INSERT INTO `Opcion` (`ID_Opcion`, `nombreOpcion`, `ID_FK_Categoria`) VALUES
 (17, 'Duraderos', 18),
 (18, 'Semiduraderos', 18),
 (19, 'Perecederos', 18),
-(20, 'Contexto interno', 44),
 (21, 'Mercado libre', 49),
 (22, 'Amazon', 49),
 (23, 'E bay', 49),
@@ -549,7 +552,6 @@ INSERT INTO `Variable` (`ID_Variable`, `nombreVariable`, `ID_FK_SistemaAsociado`
 (4, 'Norma técnica', 1),
 (5, 'Imagen empresarial ', 1),
 (6, 'Gestión funcional', 1),
-(8, 'Planeación estratégica', 1),
 (15, 'Ventas', 1),
 (16, 'Gestión de clientes ', 1),
 (17, 'Gestión por procesos', 2),
@@ -587,7 +589,8 @@ INSERT INTO `Variable` (`ID_Variable`, `nombreVariable`, `ID_FK_SistemaAsociado`
 (49, 'Identificación de peligros, evaluación y valoración de riesgos', 5),
 (50, 'Respuesta ante emergencias', 5),
 (51, 'Descripción sociodemográfica y diagnóstico de las condiciones de salud de los trabajadores', 5),
-(52, 'Sistema de gestión de SST', 5);
+(52, 'Sistema de gestión de SST', 5),
+(53, 'ventas_medios', 1);
 
 --
 -- Indexes for dumped tables
@@ -641,7 +644,7 @@ ALTER TABLE `Categoria`
 -- AUTO_INCREMENT for table `Despliegue`
 --
 ALTER TABLE `Despliegue`
-  MODIFY `ID_Despliegue` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=165;
+  MODIFY `ID_Despliegue` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=178;
 
 --
 -- AUTO_INCREMENT for table `Opcion`
@@ -659,7 +662,7 @@ ALTER TABLE `SistemaAsociado`
 -- AUTO_INCREMENT for table `Variable`
 --
 ALTER TABLE `Variable`
-  MODIFY `ID_Variable` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `ID_Variable` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- Constraints for dumped tables
