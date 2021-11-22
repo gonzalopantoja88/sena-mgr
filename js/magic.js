@@ -31,7 +31,6 @@ const gestCliente = document.querySelector("#gestCliente");
 const colAv = document.querySelector("#colAv");
 const colBv = document.querySelector("#colBv");
 const colCv = document.querySelector("#colCv");
-const agregarRiesgo = document.querySelector("#agregarRiesgo");
 
 fetch("./categoria.php")
   .then((result) => result.json())
@@ -45,6 +44,7 @@ fetch("./categoria.php")
     productoTangible(data);
     productoIntangible(data);
     fichaTecnica(data);
+    tipoIdentificacionRiesgo(data);
   });
 
 function segunOrigen(data) {
@@ -394,102 +394,54 @@ function caracterizaciones(data) {
 
 /////////// IDENTIFICACION DE RIESGO /////////////
 
+const formularioRiesgo = document.querySelector("#formularioRiesgo");
+const templateRiesgo = document.querySelector("#templateRiesgo").content;
+const tarjetasRiesgos = document.querySelector("#tarjetasRiesgos");
+const tipoIdRiesgo = document.querySelector("#tipoIdRiesgo");
 
-let conteoRiesgo = 1;
-function agregarNuevoRiesgo() {
-  fetch("./categoria.php")
-    .then((result) => result.json())
-    .then((data) => {
-      console.log(data);
-    });
+function tipoIdentificacionRiesgo(data) {
+  for (const value of data) {
+    if (value.ID_FK_Despliegue == 46) {
+      tipoIdRiesgo.innerHTML += `<option value="${value.nombreCategoria}">${value.nombreCategoria}</option>`;
+    }
+  }
+}
 
-  fetch("./sistema_asociado.php")
-    .then((result) => result.json())
-    .then((data) => {
-      console.log(data);
-    });
+const riesgos = [];
 
-  fetch("./variables.php")
-    .then((result) => result.json())
-    .then((data) => {
-      console.log(data);
-    });
+formularioRiesgo.addEventListener("submit", (e) => {
+  e.preventDefault();
 
+  const datos = new FormData(formularioRiesgo);
+  const [tipo_id_riesgo, proceso_id_riesgo] = [...datos.values()];
 
-  for (const value of object) {
+  const riesgo = new Riesgo(tipo_id_riesgo, proceso_id_riesgo);
+  riesgos.push(riesgo);
+  Riesgo.MostrarRiesgo(riesgos);
+});
+
+class Riesgo {
+  constructor(tipo, proceso) {
+    this.tipo = tipo;
+    this.proceso = proceso;
   }
 
-  agregarRiesgo.innerHTML += `
-  <div class="card mb-3">
-        <div class="card-header">Riesgo Nro.${conteoRiesgo++}</div>
-        <div class="card-body">
-            <div class="row d-flex align-items-start justify-content-between mb-3">
-                <div class="col-lg-3 col-sm-12">
-                    <label class="form-label m-0" for="tipo">Tipo</label>
-                    <select class="form-select" id="tipo" name="tipo" aria-label="tipo">
-                        <option selected disabled> --Seleccionar-- </option>
-                        <option>Estratégicos</option>
-                        <option>Misionales</option>
-                    </select>
-                </div>
-                <div class="col-lg-3 col-sm-12">
-                    <label class="form-label m-0" for="proceso">Proceso</label>
-                    <input type="text" class="form-control" id="proceso" name="proceso" placeholder="Escribir...">
-                </div>
-                <div class="col-lg-3 col-12">
-                    <label class="form-label m-0" for="objetivo">Objetivo</label>
-                    <textarea class="form-control" id="objetivo" name="objetivo" rows="2" placeholder="Escribir..."></textarea>
-                </div>
-                <div class="col-lg-3 col-12">
-                    <label class="form-label m-0" for="actCritica">Actividad crítica</label>
-                    <textarea class="form-control" id="actCritica" name="actividad_critica" rows="2" placeholder="Escribir..."></textarea>
-                </div>
-            </div>
-            <div class="row d-flex align-items-end justify-content-between mb-3">
-                <div class="col-lg-4 col-sm-12">
-                    <label class="form-label m-0" for="sistAsociado">Sistema asociado</label>
-                    <select class="form-select" id="sistAsociado" name="sistema_asociado" aria-label="Sistema asociado">
-                        <option selected disabled> --Seleccionar-- </option>
-                        <option>Estratégicos</option>
-                        <option>Misionales</option>
-                    </select>
-                </div>
-                <div class="col-lg-4 col-sm-12">
-                    <label class="form-label m-0" for="variable">Variable</label>
-                    <select class="form-select" id="variable" name="variable_riesgo" aria-label="Variable riesgo">
-                        <option selected disabled> --Seleccionar-- </option>
-                        <option>Estratégicos</option>
-                        <option>Misionales</option>
-                    </select>
-                </div>
-                <div class="col-lg-4 col-sm-12">
-                    <label class="form-label m-0" for="factRiesgo">Factores de riesgo</label>
-                    <select class="form-select" id="factRiesgo" name="factor_riesgo" aria-label="Factor riesgo">
-                        <option selected disabled> --Seleccionar-- </option>
-                        <option>Estratégicos</option>
-                        <option>Misionales</option>
-                    </select>
-                </div>
-            </div>
-            <div class="row d-flex align-items-start justify-content-between">
-                <div class="col-lg-3 col-sm-12">
-                    <label class="form-label m-0" for="riesgo">Riesgo</label>
-                    <textarea class="form-control" id="riesgo" name="riesgo" rows="2" placeholder="Escribir..."></textarea>
-                </div>
-                <div class="col-lg-3 col-12">
-                    <label class="form-label m-0" for="descripcionRiesgo">Descripción</label>
-                    <textarea class="form-control" id="descripcionRiesgo" name="descripcion_riesgo" rows="2" placeholder="Escribir..."></textarea>
-                </div>
-                <div class="col-lg-3 col-12">
-                    <label class="form-label m-0" for="causaRaiz">Causa raíz</label>
-                    <textarea class="form-control" id="causaRaiz" name="causa_raiz" rows="2" placeholder="Escribir..."></textarea>
-                </div>
-                <div class="col-lg-3 col-12">
-                    <label class="form-label m-0" for="consecuencias">Consecuencias</label>
-                    <textarea class="form-control" id="consecuencias" name="consecuencias" rows="2" placeholder="Escribir..."></textarea>
-                </div>
-            </div>
-        </div>
-    </div>
-  `;
+  static MostrarRiesgo(riesgos) {
+    tarjetasRiesgos.textContent = "";
+    const fragment = document.createDocumentFragment();
+    riesgos.forEach((item) => {
+      fragment.appendChild(item.agregarNuevoRiesgo());
+    });
+    tarjetasRiesgos.appendChild(fragment);
+  }
+
+  agregarNuevoRiesgo() {
+    const clone = templateRiesgo.cloneNode(true);
+    clone.querySelector("h5").textContent = this.tipo;
+    clone.querySelector("h6").textContent = this.proceso;
+
+    return clone;
+  }
 }
+
+
