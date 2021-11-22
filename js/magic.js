@@ -32,6 +32,13 @@ const colAv = document.querySelector("#colAv");
 const colBv = document.querySelector("#colBv");
 const colCv = document.querySelector("#colCv");
 
+fetch("./sistema_asociado.php")
+  .then((result) => result.json())
+  .then((data) => {
+    // console.log(data)
+    sistemaAsociado(data);
+  });
+
 fetch("./categoria.php")
   .then((result) => result.json())
   .then((data) => {
@@ -398,6 +405,8 @@ const formularioRiesgo = document.querySelector("#formularioRiesgo");
 const templateRiesgo = document.querySelector("#templateRiesgo").content;
 const tarjetasRiesgos = document.querySelector("#tarjetasRiesgos");
 const tipoIdRiesgo = document.querySelector("#tipoIdRiesgo");
+const sistAsociadoIdRiesgo = document.querySelector("#sistAsociadoIdRiesgo");
+const variableIdRiesgo = document.querySelector("#variableIdRiesgo");
 
 function tipoIdentificacionRiesgo(data) {
   for (const value of data) {
@@ -407,13 +416,44 @@ function tipoIdentificacionRiesgo(data) {
   }
 }
 
-const riesgos = [];
+function sistemaAsociado(data) {
+  for (const value of data) {
+    sistAsociadoIdRiesgo.innerHTML += `<option value="${value.ID_SistemaAsosiado}">${value.nombreSistemaAsociado}</option>`;
+  }
 
+  sistAsociadoIdRiesgo.addEventListener("change", function (op) {
+    let opcionSA = op.target.value;
+    let dataSelectSA = new FormData();
+    dataSelectSA.append("ID_FK_SistemaAsociado", opcionSA);
+
+    fetch("./variable_unica.php", {
+      method: "POST",
+      mode: "no-cors",
+      body: dataSelectSA,
+    })
+      .then((result) => result.json())
+      .then((data) => {
+        // console.log(data.nombreOpcion)
+        let texthtml = "";
+        variableIdRiesgo.innerHTML = "";
+
+        for (const value of data) {
+          variableIdRiesgo.removeAttribute("disabled", "");
+          variableIdRiesgo.setAttribute("active", "");
+          variableIdRiesgo.innerHTML += `<option value="">${value.nombreVariable}</option>`;
+        }
+      });
+  });
+}
+
+const riesgos = [];
 formularioRiesgo.addEventListener("submit", (e) => {
   e.preventDefault();
 
   const datos = new FormData(formularioRiesgo);
+  // console.log(datos.get('tipo_id_riesgo'))
   const [tipo_id_riesgo, proceso_id_riesgo] = [...datos.values()];
+  console.log([...datos.entries()])
 
   const riesgo = new Riesgo(tipo_id_riesgo, proceso_id_riesgo);
   riesgos.push(riesgo);
@@ -437,11 +477,20 @@ class Riesgo {
 
   agregarNuevoRiesgo() {
     const clone = templateRiesgo.cloneNode(true);
-    clone.querySelector("h5").textContent = this.tipo;
-    clone.querySelector("h6").textContent = this.proceso;
+    clone.querySelector("#pTipo").textContent = this.tipo;
+    clone.querySelector("#pSistemaAsociado").textContent = this.tipo;
+    clone.querySelector("#pVariable").textContent = this.tipo;
+    clone.querySelector("#pFactorRiesgo").textContent = this.tipo;
+
+    clone.querySelector("#idProceso").textContent = this.proceso;
+    clone.querySelector("#pObjetivo").textContent = this.proceso;
+    clone.querySelector("#pActividadCritica").textContent = this.proceso;
+
+    clone.querySelector("#pRiesgo").textContent = this.proceso;
+    clone.querySelector("#pDescripcion").textContent = this.proceso;
+    clone.querySelector("#pCausaRaiz").textContent = this.proceso;
+    clone.querySelector("#pConsecuencias").textContent = this.proceso;
 
     return clone;
   }
 }
-
-
