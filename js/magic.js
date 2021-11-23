@@ -407,6 +407,18 @@ const tarjetasRiesgos = document.querySelector("#tarjetasRiesgos");
 const tipoIdRiesgo = document.querySelector("#tipoIdRiesgo");
 const sistAsociadoIdRiesgo = document.querySelector("#sistAsociadoIdRiesgo");
 const variableIdRiesgo = document.querySelector("#variableIdRiesgo");
+const factorIdRiesgo = document.querySelector("#factorIdRiesgo");
+
+// document.addEventListener('click', e =>{
+//   console.log(e.target)
+// })
+
+fetch("./factor_riesgo.php")
+  .then((result) => result.json())
+  .then((data) => {
+    // console.log(data)
+    factorRiesgo(data);
+  });
 
 function tipoIdentificacionRiesgo(data) {
   for (const value of data) {
@@ -416,15 +428,21 @@ function tipoIdentificacionRiesgo(data) {
   }
 }
 
+function factorRiesgo(data) {
+  for (const value of data) {
+    factorIdRiesgo.innerHTML += `<option value="${value.nombreFactorRiesgo}">${value.nombreFactorRiesgo}</option>`;
+  }
+}
+
 function sistemaAsociado(data) {
   for (const value of data) {
-    sistAsociadoIdRiesgo.innerHTML += `<option value="${value.ID_SistemaAsosiado}">${value.nombreSistemaAsociado}</option>`;
+    sistAsociadoIdRiesgo.innerHTML += `<option value="${value.nombreSistemaAsociado}">${value.nombreSistemaAsociado}</option>`;
   }
 
   sistAsociadoIdRiesgo.addEventListener("change", function (op) {
     let opcionSA = op.target.value;
     let dataSelectSA = new FormData();
-    dataSelectSA.append("ID_FK_SistemaAsociado", opcionSA);
+    dataSelectSA.append("nombreSistemaAsociado", opcionSA);
 
     fetch("./variable_unica.php", {
       method: "POST",
@@ -440,7 +458,7 @@ function sistemaAsociado(data) {
         for (const value of data) {
           variableIdRiesgo.removeAttribute("disabled", "");
           variableIdRiesgo.setAttribute("active", "");
-          variableIdRiesgo.innerHTML += `<option value="">${value.nombreVariable}</option>`;
+          variableIdRiesgo.innerHTML += `<option value="${value.nombreVariable}">${value.nombreVariable}</option>`;
         }
       });
   });
@@ -452,18 +470,69 @@ formularioRiesgo.addEventListener("submit", (e) => {
 
   const datos = new FormData(formularioRiesgo);
   // console.log(datos.get('tipo_id_riesgo'))
-  const [tipo_id_riesgo, proceso_id_riesgo] = [...datos.values()];
-  console.log([...datos.entries()])
+  const [
+    tipo_id_riesgo,
+    proceso_id_riesgo,
+    objetivo_id_riesgo,
+    actividad_critica_id_Riesgo,
+    sistema_asociado_id_riesgo,
+    variable_id_riesgo,
+    factor_id_riesgo,
+    riesgo_id_riesgo,
+    descripcion_id_riesgo,
+    causa_raiz_id_riesgo,
+    consecuencias_id_riesgo,
+  ] = [...datos.values()];
+  console.log([...datos]);
 
-  const riesgo = new Riesgo(tipo_id_riesgo, proceso_id_riesgo);
+  const riesgo = new Riesgo(
+    tipo_id_riesgo,
+    proceso_id_riesgo,
+    objetivo_id_riesgo,
+    actividad_critica_id_Riesgo,
+    sistema_asociado_id_riesgo,
+    variable_id_riesgo,
+    factor_id_riesgo,
+    riesgo_id_riesgo,
+    descripcion_id_riesgo,
+    causa_raiz_id_riesgo,
+    consecuencias_id_riesgo
+  );
   riesgos.push(riesgo);
   Riesgo.MostrarRiesgo(riesgos);
+
+  fetch('./insertar_riesgo.php',{
+    method: 'POST',
+    body: datos
+  })
+
 });
 
 class Riesgo {
-  constructor(tipo, proceso) {
+  constructor(
+    tipo,
+    proceso,
+    objetivo,
+    actividad,
+    sistemaAsociado,
+    variable,
+    factorRiesgo,
+    riesgo,
+    descripcion,
+    causa,
+    consecuencia
+  ) {
     this.tipo = tipo;
     this.proceso = proceso;
+    this.objetivo = objetivo;
+    this.actividad = actividad;
+    this.sistemaAsociado = sistemaAsociado;
+    this.variable = variable;
+    this.factorRiesgo = factorRiesgo;
+    this.riesgo = riesgo;
+    this.descripcion = descripcion;
+    this.causa = causa;
+    this.consecuencia = consecuencia;
   }
 
   static MostrarRiesgo(riesgos) {
@@ -478,18 +547,16 @@ class Riesgo {
   agregarNuevoRiesgo() {
     const clone = templateRiesgo.cloneNode(true);
     clone.querySelector("#pTipo").textContent = this.tipo;
-    clone.querySelector("#pSistemaAsociado").textContent = this.tipo;
-    clone.querySelector("#pVariable").textContent = this.tipo;
-    clone.querySelector("#pFactorRiesgo").textContent = this.tipo;
-
+    clone.querySelector("#pSistemaAsociado").textContent = this.sistemaAsociado;
+    clone.querySelector("#pVariable").textContent = this.variable;
+    clone.querySelector("#pFactorRiesgo").textContent = this.factorRiesgo;
     clone.querySelector("#idProceso").textContent = this.proceso;
-    clone.querySelector("#pObjetivo").textContent = this.proceso;
-    clone.querySelector("#pActividadCritica").textContent = this.proceso;
-
-    clone.querySelector("#pRiesgo").textContent = this.proceso;
-    clone.querySelector("#pDescripcion").textContent = this.proceso;
-    clone.querySelector("#pCausaRaiz").textContent = this.proceso;
-    clone.querySelector("#pConsecuencias").textContent = this.proceso;
+    clone.querySelector("#pObjetivo").textContent = this.objetivo;
+    clone.querySelector("#pActividadCritica").textContent = this.actividad;
+    clone.querySelector("#pRiesgo").textContent = this.riesgo;
+    clone.querySelector("#pDescripcion").textContent = this.descripcion;
+    clone.querySelector("#pCausaRaiz").textContent = this.causa;
+    clone.querySelector("#pConsecuencias").textContent = this.consecuencia;
 
     return clone;
   }

@@ -83,120 +83,64 @@
             </form>
 
             <div id="tarjetasRiesgos">
-                <!-- condicion para agregar cards -->
-                <article class="card mt-3">
-                    <div class="card-header">Riesgo # 1</div>
-                    <div class="card-body">
-                        <div class="row d-flex align-items-start mb-3">
-                            <div class="col-lg-3 col-sm-12">
-                                <h4>Tipo:</h4>
-                                <p class="m-0">Mejora</p>
-                            </div>
-                            <div class="col-lg-3 col-sm-12">
-                                <h4>Sistema asociado:</h4>
-                                <p class="m-0">Mejora</p>
-                            </div>
-                            <div class="col-lg-3 col-sm-12">
-                                <h4>Variable:</h4>
-                                <p class="m-0">Mejora</p>
-                            </div>
-                            <div class="col-lg-3 col-sm-12">
-                                <h4>Factores de riesgo:</h4>
-                                <p class="m-0">Mejora</p>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="row d-flex align-items-start mb-3">
-                            <div class="col-lg-4 col-sm-12">
-                                <h4>Proceso:</h4>
-                                <p class="m-0">Nulla quis lorem ut libero malesuada feugiat. Proin eget tortor risus. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi.</p>
-                            </div>
-                            <div class="col-lg-4 col-sm-12">
-                                <h4>Objetivo:</h4>
-                                <p class="m-0">Nulla quis lorem ut libero malesuada feugiat. Proin eget tortor risus. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi.</p>
-                            </div>
-                            <div class="col-lg-4 col-sm-12">
-                                <h4>Actividad crítica:</h4>
-                                <p class="m-0">Nulla quis lorem ut libero malesuada feugiat. Proin eget tortor risus. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi.</p>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="row d-flex align-items-start">
-                            <div class="col-lg-3 col-sm-12">
-                                <h4>Riesgo:</h4>
-                                <p class="m-0">Nulla quis lorem ut libero malesuada feugiat. Proin eget tortor risus. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi.</p>
-                            </div>
-                            <div class="col-lg-3 col-sm-12">
-                                <h4>Descripción:</h4>
-                                <p class="m-0">Nulla quis lorem ut libero malesuada feugiat. Proin eget tortor risus. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi.</p>
-                            </div>
-                            <div class="col-lg-3 col-sm-12">
-                                <h4>Causa raíz:</h4>
-                                <p class="m-0">Nulla quis lorem ut libero malesuada feugiat. Proin eget tortor risus. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi.</p>
-                            </div>
-                            <div class="col-lg-3 col-sm-12">
-                                <h4>Consecuencias:</h4>
-                                <p class="m-0">Nulla quis lorem ut libero malesuada feugiat. Proin eget tortor risus. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi.</p>
-                            </div>
-                        </div>
-                    </div>
-                </article>
+                <!-- condicion para agregar cards -->   
             </div>
 
             <template id="templateRiesgo">
+
                 <article class="card mt-3">
-                    <div class="card-header">Riesgo # 1</div>
+                    <div class="card-header">Riesgo</div>
                     <div class="card-body">
                         <div class="row d-flex align-items-start mb-3">
                             <div class="col-lg-3 col-sm-12">
                                 <h4>Tipo:</h4>
-                                <p class="m-0" id="pTipo">Mejora</p>
+                                <p class="m-0" id="pTipo"></p>
                             </div>
                             <div class="col-lg-3 col-sm-12">
                                 <h4>Sistema asociado:</h4>
-                                <p class="m-0" id="pSistemaAsociado">Mejora</p>
+                                <p class="m-0" id="pSistemaAsociado"></p>
                             </div>
                             <div class="col-lg-3 col-sm-12">
                                 <h4>Variable:</h4>
-                                <p class="m-0" id="pVariable">Mejora</p>
+                                <p class="m-0" id="pVariable"></p>
                             </div>
                             <div class="col-lg-3 col-sm-12">
                                 <h4>Factores de riesgo:</h4>
-                                <p class="m-0" id="pFactorRiesgo">Mejora</p>
+                                <p class="m-0" id="pFactorRiesgo"></p>
                             </div>
                         </div>
                         <hr>
                         <div class="row d-flex align-items-start mb-3">
                             <div class="col-lg-4 col-sm-12">
                                 <h4>Proceso:</h4>
-                                <p class="m-0" id="idProceso">Nulla quis lorem ut libero malesuada feugiat. Proin eget tortor risus. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi.</p>
+                                <p class="m-0" id="idProceso"></p>
                             </div>
                             <div class="col-lg-4 col-sm-12">
                                 <h4>Objetivo:</h4>
-                                <p class="m-0" id="pObjetivo">Nulla quis lorem ut libero malesuada feugiat. Proin eget tortor risus. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi.</p>
+                                <p class="m-0" id="pObjetivo"></p>
                             </div>
                             <div class="col-lg-4 col-sm-12">
                                 <h4>Actividad crítica:</h4>
-                                <p class="m-0" id="pActividadCritica">Nulla quis lorem ut libero malesuada feugiat. Proin eget tortor risus. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi.</p>
+                                <p class="m-0" id="pActividadCritica"></p>
                             </div>
                         </div>
                         <hr>
                         <div class="row d-flex align-items-start">
                             <div class="col-lg-3 col-sm-12">
                                 <h4>Riesgo:</h4>
-                                <p class="m-0" id="pRiesgo">Nulla quis lorem ut libero malesuada feugiat. Proin eget tortor risus. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi.</p>
+                                <p class="m-0" id="pRiesgo"></p>
                             </div>
                             <div class="col-lg-3 col-sm-12">
                                 <h4>Descripción:</h4>
-                                <p class="m-0" id="pDescripcion">Nulla quis lorem ut libero malesuada feugiat. Proin eget tortor risus. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi.</p>
+                                <p class="m-0" id="pDescripcion"></p>
                             </div>
                             <div class="col-lg-3 col-sm-12">
                                 <h4>Causa raíz:</h4>
-                                <p class="m-0" id="pCausaRaiz">Nulla quis lorem ut libero malesuada feugiat. Proin eget tortor risus. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi.</p>
+                                <p class="m-0" id="pCausaRaiz"></p>
                             </div>
                             <div class="col-lg-3 col-sm-12">
                                 <h4>Consecuencias:</h4>
-                                <p class="m-0" id="pConsecuencias">Nulla quis lorem ut libero malesuada feugiat. Proin eget tortor risus. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi.</p>
+                                <p class="m-0" id="pConsecuencias"></p>
                             </div>
                         </div>
                     </div>
