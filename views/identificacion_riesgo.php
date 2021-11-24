@@ -89,7 +89,7 @@
             <template id="templateRiesgo">
 
                 <article class="card mt-3">
-                    <div class="card-header">Riesgo</div>
+                    <div class="card-header">Riesgo:</div>
                     <div class="card-body">
                         <div class="row d-flex align-items-start mb-3">
                             <div class="col-lg-3 col-sm-12">
