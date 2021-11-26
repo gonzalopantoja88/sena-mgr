@@ -72,7 +72,16 @@
                                 <label class="form-label m-0" for="consecuenciasIdRiesgo">Consecuencias</label>
                                 <textarea class="form-control" id="consecuenciasIdRiesgo" name="consecuencias_id_riesgo" rows="2" placeholder="Escribir..."></textarea>
                             </div>
+                            <div class="row">
+                                <div class="form-check">
+                                  <input type="checkbox" class="form-check-input" name="checkbox_prueba" id="" value="Dato del checkbox">
+                                  <label class="form-check-label" for="">
+                                    prueba checkbox
+                                  </label>
+                                </div>
+                            </div>
                         </div>
+                        
                     </div>
                 </div>
                 <div class="row text-center">

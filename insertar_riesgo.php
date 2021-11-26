@@ -17,7 +17,7 @@ $descripcion = $_POST['descripcion_id_riesgo'];
 $causa_raiz = $_POST['causa_raiz_id_riesgo'];
 $consecuencias = $_POST['consecuencias_id_riesgo'];
 
-$query = "INSERT INTO IdentificacionRiesgos(tipo, proceso, objetivo, actividadCritica, sistemaAsociado, variable, factorRiesgo, riesgo, descripcion, causaRaiz, consecuencias) VALUES (?,?,?,?,?,?,?,?,?,?,?);";
+$query = "INSERT INTO IdentificacionRiesgo(tipo, proceso, objetivo, actividadCritica, sistemaAsociado, variable, factorRiesgo, riesgo, descripcion, causaRaiz, consecuencias) VALUES (?,?,?,?,?,?,?,?,?,?,?);";
 
 $reg = $conn->prepare($query);
 $reg->execute(array($tipo, $proceso, $objetivo, $actividad_critica, $sistema_asociado, $variable, $factor_riesgo, $riesgo, $descripcion, $causa_raiz, $consecuencias));

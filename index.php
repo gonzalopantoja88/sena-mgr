@@ -33,7 +33,7 @@
                 <h4>Definir contexto</h4>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#empresa">Empresa</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#sistemaGeneral">Sistema general</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#">SGC</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#sistemaCalidad">SGC</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experience">SGA</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experience">SST</a></li>
                 <hr class="text-black">
@@ -72,15 +72,17 @@
             </div>
         </section>
 
-        <!-- aqui seccion empresa -->
+        <!-- seccion contexto empresa -->
         <?php include_once('./views/empresa.php'); ?>
 
-        <!-- aqui seccion sistema general -->
+        <!-- seccion sistema general -->
         <?php include_once('./views/sistema_general.php'); ?>
 
-        <!-- aqui seccion sistema general -->
-        <?php include_once('./views/identificacion_riesgo.php'); ?>
+        <!-- seccion sistema gestion calidad -->
+        <?php include_once('./views/sistema_calidad.php'); ?>
 
+        <!-- seccion identificacion riesgo -->
+        <?php include_once('./views/identificacion_riesgo.php'); ?>
 
 
         <!-- Education-->
@@ -215,6 +217,7 @@
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
     <script src="js/magic.js"></script>
+    <!-- <script src="test.js"></script> -->
 </body>
 
 </html>

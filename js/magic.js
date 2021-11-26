@@ -399,6 +399,287 @@ function caracterizaciones(data) {
   }
 }
 
+//////////// INICIO SGC ////////////
+
+const despliegue_planificacion1 = document.querySelector(
+  "#planificaYcontrol_col1"
+);
+const despliegue_planificacion2 = document.querySelector(
+  "#planificaYcontrol_col2"
+);
+const categoria_comunicacion1 = document.querySelector(
+  "#comunicacionClientes1"
+);
+const categoria_comunicacion2 = document.querySelector(
+  "#comunicacionClientes2"
+);
+const despliegue_revision1 = document.querySelector("#revisionRequisitos1");
+const despliegue_revision2 = document.querySelector("#revisionRequisitos2");
+const despliegueControl_procesos1 = document.querySelector("#controlProcesos1");
+const despliegueControl_procesos2 = document.querySelector("#controlProcesos2");
+const despliegueLiberacion1 = document.querySelector("#liberacionProcesos1");
+const despliegueLiberacion2 = document.querySelector("#liberacionProcesos2");
+const despliegueControlSalida1 = document.querySelector("#controlSalida1");
+const despliegueControlSalida2 = document.querySelector("#controlSalida2");
+const categoria_DesarrolloProd1 = document.querySelector(
+  "#desarrolloProductos1"
+);
+const categoria_DesarrolloProd2 = document.querySelector(
+  "#desarrolloProductos2"
+);
+const opcion_controlProduc1 = document.querySelector("#controlProduc1");
+const opcion_controlProduc2 = document.querySelector("#controlProduc2");
+const opcion_controlProduc3 = document.querySelector("#controlProduc3");
+
+fetch("./despliegue.php")
+  .then((result) => result.json())
+  .then((data) => {
+    desplieguePlanificacion(data);
+    despliegueRevision(data);
+    despliegueControlProcesos(data);
+    despliegueLiberacion(data);
+    despliegueControlSalida(data);
+    desarrolloProduc2(data);
+    controlProduccion2(data);
+  });
+
+fetch("./categoria.php")
+  .then((result) => result.json())
+  .then((data) => {
+    categoria_clientes(data);
+    desarrolloProduc(data);
+    controlProduccion1_2(data);
+    controlProduccion3(data);
+    controlProduccion4(data);
+  });
+
+fetch("./opcion.php")
+  .then((result) => result.json())
+  .then((data) => {
+    controlProduccion1(data);
+  });
+
+function controlProduccion1(data) {
+  let count = 1;
+  for (const value of data) {
+    if (value.ID_FK_Categoria == 118) {
+      controlProduc1.innerHTML += `<div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="" value="" id="${value.nombreOpcion}">
+                            <label class="form-check-label" for="${value.nombreOpcion}">${value.nombreOpcion}</label>
+                        </div>`;
+      count++;
+    }
+  }
+}
+
+function controlProduccion1_2(data) {
+  let count = 1;
+  for (const value of data) {
+    if (value.ID_FK_Despliegue == 110 && value.ID_Categoria != 118) {
+      controlProduc1.innerHTML += `<div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="" value="" id="${value.nombreCategoria}">
+                            <label class="form-check-label" for="${value.nombreCategoria}">${value.nombreCategoria}</label>
+                        </div>`;
+      count++;
+    }
+  }
+}
+
+function controlProduccion2(data) {
+  let count = 1;
+  for (const value of data) {
+    if (
+      value.ID_FK_Variable == 33 &&
+      value.ID_Despliegue != 110 &&
+      value.ID_Despliegue != 111 &&
+      value.ID_Despliegue != 112
+    ) {
+      controlProduc2.innerHTML += `<div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="" value="" id="${value.nombreDespliegue}">
+                            <label class="form-check-label" for="${value.nombreDespliegue}">${value.nombreDespliegue}</label>
+                        </div>`;
+      count++;
+    }
+  }
+}
+
+function controlProduccion3(data) {
+  let count = 1;
+  for (const value of data) {
+    if (value.ID_FK_Despliegue == 111) {
+      controlProduc3.innerHTML += `<div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="" value="" id="${value.nombreCategoria}">
+                            <label class="form-check-label" for="${value.nombreCategoria}">${value.nombreCategoria}</label>
+                        </div>`;
+      count++;
+    }
+  }
+}
+
+function controlProduccion4(data) {
+  let count = 1;
+  for (const value of data) {
+    if (value.ID_FK_Despliegue == 112) {
+      controlProduc4.innerHTML += `<div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="" value="" id="${value.nombreCategoria}">
+                            <label class="form-check-label" for="${value.nombreCategoria}">${value.nombreCategoria}</label>
+                        </div>`;
+      count++;
+    }
+  }
+}
+
+function desplieguePlanificacion(data) {
+  let count = 1;
+  for (const value of data) {
+    if (value.ID_FK_Variable == 28) {
+      if (count % 2 != 0) {
+        despliegue_planificacion1.innerHTML += `<div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="" value="" id="${value.nombreDespliegue}">
+                        <label class="form-check-label" for="${value.nombreDespliegue}">${value.nombreDespliegue}</label>
+                    </div>`;
+        count++;
+      } else {
+        despliegue_planificacion2.innerHTML += `<div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="" value="" id="${value.nombreDespliegue}">
+                        <label class="form-check-label" for="${value.nombreDespliegue}">${value.nombreDespliegue}</label>
+                    </div>`;
+        count++;
+      }
+    }
+  }
+}
+
+function categoria_clientes(data) {
+  let count = 1;
+  for (const value of data) {
+    if (value.ID_FK_Despliegue == 91) {
+      if (count % 2 != 0) {
+        categoria_comunicacion1.innerHTML += `<div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="" value="" id="${value.nombreCategoria}">
+                        <label class="form-check-label" for="${value.nombreCategoria}">${value.nombreCategoria}</label>
+                    </div>`;
+        count++;
+      } else {
+        categoria_comunicacion2.innerHTML += `<div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="" value="" id="${value.nombreCategoria}">
+                        <label class="form-check-label" for="${value.nombreCategoria}">${value.nombreCategoria}</label>
+                    </div>`;
+        count++;
+      }
+    }
+  }
+}
+
+function despliegueRevision(data) {
+  let count = 1;
+  for (const value of data) {
+    if (value.ID_FK_Variable == 30) {
+      if (count % 2 != 0) {
+        despliegue_revision1.innerHTML += `<div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="" value="" id="${value.nombreDespliegue}">
+                        <label class="form-check-label" for="${value.nombreDespliegue}">${value.nombreDespliegue}</label>
+                    </div>`;
+        count++;
+      } else {
+        despliegue_revision2.innerHTML += `<div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="" value="" id="${value.nombreDespliegue}">
+                        <label class="form-check-label" for="${value.nombreDespliegue}">${value.nombreDespliegue}</label>
+                    </div>`;
+        count++;
+      }
+    }
+  }
+}
+
+function desarrolloProduc(data) {
+  let count = 1;
+  for (const value of data) {
+    if (value.ID_FK_Despliegue == 99) {
+      categoria_DesarrolloProd1.innerHTML += `<div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="" value="" id="${value.nombreCategoria}">
+                        <label class="form-check-label" for="${value.nombreCategoria}">${value.nombreCategoria}</label>
+                    </div>`;
+    }
+  }
+}
+
+function desarrolloProduc2(data) {
+  let count = 1;
+  for (const value of data) {
+    if (value.ID_FK_Variable == 31 && value.ID_Despliegue != 99) {
+      categoria_DesarrolloProd2.innerHTML += `<div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="" value="" id="${value.nombreDespliegue}">
+                        <label class="form-check-label" for="${value.nombreDespliegue}">${value.nombreDespliegue}</label>
+                    </div>`;
+    }
+  }
+}
+
+function despliegueControlProcesos(data) {
+  let count = 1;
+  for (const value of data) {
+    if (value.ID_FK_Variable == 32) {
+      if (count % 2 != 0) {
+        despliegueControl_procesos1.innerHTML += `<div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="" value="" id="${value.nombreDespliegue}">
+                        <label class="form-check-label" for="${value.nombreDespliegue}">${value.nombreDespliegue}</label>
+                    </div>`;
+        count++;
+      } else {
+        despliegueControl_procesos2.innerHTML += `<div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="" value="" id="${value.nombreDespliegue}">
+                        <label class="form-check-label" for="${value.nombreDespliegue}">${value.nombreDespliegue}</label>
+                    </div>`;
+        count++;
+      }
+    }
+  }
+}
+
+function despliegueLiberacion(data) {
+  let count = 1;
+  for (const value of data) {
+    if (value.ID_FK_Variable == 34) {
+      if (count % 2 != 0) {
+        despliegueLiberacion1.innerHTML += `<div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="" value="" id="${value.nombreDespliegue}">
+                        <label class="form-check-label" for="${value.nombreDespliegue}">${value.nombreDespliegue}</label>
+                    </div>`;
+        count++;
+      } else {
+        despliegueLiberacion2.innerHTML += `<div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="" value="" id="${value.nombreDespliegue}">
+                        <label class="form-check-label" for="${value.nombreDespliegue}">${value.nombreDespliegue}</label>
+                    </div>`;
+        count++;
+      }
+    }
+  }
+}
+
+function despliegueControlSalida(data) {
+  let count = 1;
+  for (const value of data) {
+    if (value.ID_FK_Variable == 35) {
+      if (count % 2 != 0) {
+        despliegueControlSalida1.innerHTML += `<div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="" value="" id="${value.nombreDespliegue}">
+                        <label class="form-check-label" for="${value.nombreDespliegue}">${value.nombreDespliegue}</label>
+                    </div>`;
+        count++;
+      } else {
+        despliegueControlSalida2.innerHTML += `<div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="" value="" id="${value.nombreDespliegue}">
+                        <label class="form-check-label" for="${value.nombreDespliegue}">${value.nombreDespliegue}</label>
+                    </div>`;
+        count++;
+      }
+    }
+  }
+}
+//////////// FIN SGC ////////////
+
 /////////// IDENTIFICACION DE RIESGO /////////////
 
 const formularioRiesgo = document.querySelector("#formularioRiesgo");
@@ -501,11 +782,10 @@ formularioRiesgo.addEventListener("submit", (e) => {
   riesgos.push(riesgo);
   Riesgo.MostrarRiesgo(riesgos);
 
-  fetch('./insertar_riesgo.php',{
-    method: 'POST',
-    body: datos
-  })
-
+  fetch("./insertar_riesgo.php", {
+    method: "POST",
+    body: datos,
+  });
 });
 
 class Riesgo {
