@@ -31,3 +31,8 @@ $reg->execute(array($tipo, $proceso, $objetivo, $actividad_critica, $sistema_aso
 
 
 
+// SELECT id_pfdm, origen_capital, dimension, nombreCategoria, tipo_persona, logotipo, marca, eslogan
+// FROM prueba_formulario_dm
+// INNER JOIN categoria ON prueba_formulario_dm.propietario = categoria.ID_Categoria
+
+

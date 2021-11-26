@@ -114,7 +114,7 @@
                             </div>
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-lg-4 col-sm-12" >
+                                    <div class="col-lg-6 col-sm-12" >
                                         <div class="row">
                                             <label class="form-label m-0" for="normaTec">Imagen empresarial</label>
                                         </div>
@@ -122,7 +122,7 @@
                                             <!-- condicion imagen empresarial -->
                                         </div>
                                     </div>
-                                    <div class="col-lg-4 col-sm-12" id="normaTecnica">
+                                    <div class="col-lg-6 col-sm-12" id="normaTecnica">
                                         <label class="form-label m-0" for="normaTec">Norma técnica</label>
                                         <select class="form-select" id="normaTec" name="normaTec" aria-label="Norma tecnica">
                                             <option selected disabled> --Seleccionar-- </option>

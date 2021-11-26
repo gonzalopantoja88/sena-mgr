@@ -74,14 +74,14 @@
                             </div>
                             <div class="row">
                                 <div class="form-check">
-                                  <input type="checkbox" class="form-check-input" name="checkbox_prueba" id="" value="Dato del checkbox">
-                                  <label class="form-check-label" for="">
-                                    prueba checkbox
-                                  </label>
+                                    <input type="checkbox" class="form-check-input" name="checkbox_prueba" id="" value="Dato del checkbox">
+                                    <label class="form-check-label" for="">
+                                        prueba checkbox
+                                    </label>
                                 </div>
                             </div>
                         </div>
-                        
+
                     </div>
                 </div>
                 <div class="row text-center">
@@ -92,7 +92,7 @@
             </form>
 
             <div id="tarjetasRiesgos">
-                <!-- condicion para agregar cards -->   
+                <!-- condicion para agregar cards -->
             </div>
 
             <template id="templateRiesgo">

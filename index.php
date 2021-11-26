@@ -36,6 +36,7 @@
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#sistemaCalidad">SGC</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experience">SGA</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experience">SST</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#pruebaFormulario">PRUEBA FORMULARIO</a></li>
                 <hr class="text-black">
                 <h4>Identificar riesgo</h4>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#identificacionRiesgo">Identificar riesgo</a></li>
@@ -71,7 +72,7 @@
                 </div>
             </div>
         </section>
-
+        
         <!-- seccion contexto empresa -->
         <?php include_once('./views/empresa.php'); ?>
 

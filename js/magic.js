@@ -8,6 +8,9 @@ const removeAccents = (str) => {
   return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 };
 
+
+/////////// INICIO CONTEXTO EMPRESA /////////////
+const formularioEmpresa = document.querySelector('#formularioEmpresa');
 const origenCapital = document.querySelector("#origenCapital");
 const dimension = document.querySelector("#dimension");
 const objetoSocial = document.querySelector("#objetoSocial");
@@ -31,6 +34,7 @@ const gestCliente = document.querySelector("#gestCliente");
 const colAv = document.querySelector("#colAv");
 const colBv = document.querySelector("#colBv");
 const colCv = document.querySelector("#colCv");
+
 
 fetch("./sistema_asociado.php")
   .then((result) => result.json())
@@ -58,7 +62,7 @@ function segunOrigen(data) {
   for (const value of data) {
     if (value.ID_FK_Despliegue == 1) {
       // console.log(value.nombreCategoria)
-      origenCapital.innerHTML += `<option value="">${value.nombreCategoria}</option>`;
+      origenCapital.innerHTML += `<option value="${value.nombreCategoria}">${value.nombreCategoria}</option>`;
     }
   }
 }
@@ -67,7 +71,7 @@ function segunDimension(data) {
   for (const value of data) {
     if (value.ID_FK_Despliegue == 2) {
       // console.log(value.nombreCategoria)
-      dimension.innerHTML += `<option value="">${value.nombreCategoria}</option>`;
+      dimension.innerHTML += `<option value="${value.nombreCategoria}">${value.nombreCategoria}</option>`;
     }
   }
 }
@@ -76,7 +80,7 @@ function segunObjetoSocial(data) {
   for (const value of data) {
     if (value.ID_FK_Despliegue == 3) {
       // console.log(value.nombreCategoria)
-      objetoSocial.innerHTML += `<option value="">${value.nombreCategoria}</option>`;
+      objetoSocial.innerHTML += `<option value="${value.nombreCategoria}">${value.nombreCategoria}</option>`;
     }
   }
 }
@@ -85,14 +89,14 @@ function segunSectorEconomico(data) {
   for (const value of data) {
     if (value.ID_FK_Despliegue == 4) {
       // console.log(value.nombreCategoria)
-      sectorEconomico.innerHTML += `<option value="${value.ID_Categoria}">${value.nombreCategoria}</option>`;
+      sectorEconomico.innerHTML += `<option value="${value.nombreCategoria}">${value.nombreCategoria}</option>`;
     }
   }
 
   sectorEconomico.addEventListener("change", function (op) {
     let opcion = op.target.value;
     let dataSelect = new FormData();
-    dataSelect.append("ID_FK_Categoria", opcion);
+    dataSelect.append("nombre_categoria", opcion);
 
     fetch("./opcion_unica.php", {
       method: "POST",
@@ -109,14 +113,14 @@ function segunSectorEconomico(data) {
           for (const value of data) {
             opcionesSectorEco.removeAttribute("disabled", "");
             opcionesSectorEco.setAttribute("active", "");
-            opcionesSectorEco.innerHTML += `<option value="">${value.nombreOpcion}</option>`;
+            opcionesSectorEco.innerHTML += `<option value="${value.nombreOpcion}">${value.nombreOpcion}</option>`;
             texthtml = value.nombreCategoria;
           }
         } else {
           texthtml = "Sin opciones";
           opcionesSectorEco.removeAttribute("active", "");
           opcionesSectorEco.setAttribute("disabled", "");
-          opcionesSectorEco.innerHTML += `<option selected disabled value="">--Sin opciones--</option>`;
+          opcionesSectorEco.innerHTML += `<option selected disabled value="Sin opciones">--Sin opciones--</option>`;
         }
 
         opcionSectorEco.innerHTML = texthtml;
@@ -128,14 +132,14 @@ function segunNumPropietarios(data) {
   for (const value of data) {
     if (value.ID_FK_Despliegue == 5) {
       // console.log(value.nombreCategoria)
-      propietarios.innerHTML += `<option value="${value.ID_Categoria}">${value.nombreCategoria}</option>`;
+      propietarios.innerHTML += `<option value="${value.nombreCategoria}">${value.nombreCategoria}</option>`;
     }
   }
 
   propietarios.addEventListener("change", function (op) {
     let opcion = op.target.value;
     let dataSelect = new FormData();
-    dataSelect.append("ID_FK_Categoria", opcion);
+    dataSelect.append("nombre_categoria", opcion);
 
     fetch("./opcion_unica.php", {
       method: "POST",
@@ -152,14 +156,14 @@ function segunNumPropietarios(data) {
           for (const value of data) {
             tipoPersona.removeAttribute("disabled", "");
             tipoPersona.setAttribute("active", "");
-            tipoPersona.innerHTML += `<option value="">${value.nombreOpcion}</option>`;
+            tipoPersona.innerHTML += `<option value="${value.nombreOpcion}">${value.nombreOpcion}</option>`;
             texthtml = value.nombreCategoria;
           }
         } else {
           texthtml = "Sin opciones";
           tipoPersona.removeAttribute("active", "");
           tipoPersona.setAttribute("disabled", "");
-          tipoPersona.innerHTML += `<option selected disabled value="">--Sin opciones--</option>`;
+          tipoPersona.innerHTML += `<option selected disabled value="Sin opciones">--Sin opciones--</option>`;
         }
 
         opTipoPersona.innerHTML = texthtml;
@@ -171,14 +175,14 @@ function productoTangible(data) {
   for (const value of data) {
     if (value.ID_FK_Despliegue == 6) {
       // console.log(value.nombreCategoria)
-      tangibles.innerHTML += `<option value="${value.ID_Categoria}">${value.nombreCategoria}</option>`;
+      tangibles.innerHTML += `<option value="${value.nombreCategoria}">${value.nombreCategoria}</option>`;
     }
   }
 
   tangibles.addEventListener("change", function (op) {
     let opcion = op.target.value;
     let dataSelect = new FormData();
-    dataSelect.append("ID_FK_Categoria", opcion);
+    dataSelect.append("nombre_categoria", opcion);
 
     fetch("./opcion_unica.php", {
       method: "POST",
@@ -195,14 +199,14 @@ function productoTangible(data) {
           for (const value of data) {
             bienes.removeAttribute("disabled", "");
             bienes.setAttribute("active", "");
-            bienes.innerHTML += `<option value="">${value.nombreOpcion}</option>`;
+            bienes.innerHTML += `<option value=">${value.nombreOpcion}">${value.nombreOpcion}</option>`;
             texthtml = value.nombreCategoria;
           }
         } else {
           texthtml = "Sin opciones";
           bienes.removeAttribute("active", "");
           bienes.setAttribute("disabled", "");
-          bienes.innerHTML += `<option selected disabled value="">--Sin opciones--</option>`;
+          bienes.innerHTML += `<option selected disabled value="Sin opciones">--Sin opciones--</option>`;
         }
 
         opBienes.innerHTML = texthtml;
@@ -214,7 +218,7 @@ function productoIntangible(data) {
   for (const value of data) {
     if (value.ID_FK_Despliegue == 7) {
       // console.log(value.nombreCategoria)
-      intangibles.innerHTML += `<option value="">${value.nombreCategoria}</option>`;
+      intangibles.innerHTML += `<option value="${value.nombreCategoria}">${value.nombreCategoria}</option>`;
     }
   }
 }
@@ -264,34 +268,10 @@ function fichaTecnica(data) {
   }
 }
 
-// condicion para agregar elementos en 2 columnas
-// function fichaTecnica(data) {
-//     let count = 1;
-//     for (const value of data) {
-//         if (value.ID_FK_Variable == 3) {
-//             if ( count % 2 != 0){
-//                 colA.innerHTML +=
-//                     `<div class="form-check form-check-inline">
-//                     <input class="form-check-input" type="checkbox">
-//                     <label class="form-check-label">${value.nombreDespliegue}</label>
-//                 </div> `
-//                 count++
-//             } else {
-//                 colB.innerHTML +=
-//                     `<div class="form-check form-check-inline">
-//                     <input class="form-check-input" type="checkbox">
-//                     <label class="form-check-label">${value.nombreDespliegue}</label>
-//                 </div> `
-//                 count++
-//             }
-//         }
-//     }
-// }
-
 function normaTecnica(data) {
   for (const value of data) {
     if (value.ID_FK_Variable == 4) {
-      normaTec.innerHTML += `<option value="">${value.nombreDespliegue}</option>`;
+      normaTec.innerHTML += `<option value="${value.nombreDespliegue}">${value.nombreDespliegue}</option>`;
     }
   }
 }
@@ -301,9 +281,8 @@ function imagenEmpresarial(data) {
     if (value.ID_FK_Variable == 5) {
       let strDirty = removeAccents(value.nombreDespliegue);
       let strClean = strDirty.replace(/ /g, "").toLowerCase();
-
       imgEmp.innerHTML += `<div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" name="${strClean}" id="${strClean}" value="${value.nombreDespliegue}">
+            <input class="form-check-input" type="checkbox"  name="${strClean}" id="${strClean}" value="${value.nombreDespliegue}">
             <label class="form-check-label" for="${strClean}">${value.nombreDespliegue}</label>
             </div>`;
     }
@@ -358,8 +337,24 @@ function gestionClientes(data) {
   }
 }
 
-/////////// SISTEMA GENETAL /////////////
 
+formularioEmpresa.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const datosEmpresa = new FormData(formularioEmpresa);
+  // console.log(datos.get('tipo_id_riesgo')
+ console.log([...datosEmpresa.keys()]);
+
+
+  // fetch("./insertar_riesgo.php", {
+  //   method: "POST",
+  //   body: datosEmpresa,
+  // });
+});
+/////////// FIN CONTEXTO EMPRESA /////////////
+
+
+/////////// INICIO SISTEMA GENETAL /////////////
 const Mapa_Procesos = document.querySelector("#Mapa_Procesos");
 const Caracterizaciones = document.querySelector("#Caracterizaciones");
 
@@ -764,7 +759,7 @@ formularioRiesgo.addEventListener("submit", (e) => {
     causa_raiz_id_riesgo,
     consecuencias_id_riesgo,
   ] = [...datos.values()];
-  console.log([...datos]);
+  // console.log([...datos]);
 
   const riesgo = new Riesgo(
     tipo_id_riesgo,
