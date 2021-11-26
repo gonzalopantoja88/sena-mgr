@@ -74,111 +74,7 @@
         </section>
 
         <hr class="m-0" />
-        <!-- Empresa-->
-        <section class="resume-section" id="empresa">
-            <div class="resume-section-content">
-                <h2 class="mb-3">Información Empresa</h2>
-                <button onclick="prueba()">prueba</button>
-                <div class="container">
-                    <form action="" method="post" id="formularioEmpresa">
-                        <!-- card tipo empresa -->
-                        <div class="card mb-3">
-                            <div class="card-header">
-                                <div class="subheading">Tipo de empresa</div>
-                            </div>
-                            <div class="card-body">
-                                <div class="row d-flex align-items-end justify-content-between mb-3">
-                                    <div class="col-lg-3 col-sm-12">
-                                        <label class="form-label m-0" for="origenCapital">Origen capital</label>
-                                        <select class="form-select" id="origenCapital" name="origenCapital" aria-label="Origen capital">
-                                            <option selected disabled> --Seleccionar-- </option>
-                                        </select>
-                                    </div>
-                                    <div class="col-lg-3 col-sm-12">
-                                        <label class="form-label m-0" for="dimension">Tamaño</label>
-                                        <select class="form-select" id="dimension" name="dimension" aria-label="dimension">
-                                            <option selected disabled> --Seleccionar-- </option>
-                                        </select>
-                                    </div>
-                                    <div class="col-lg-3 col-12">
-                                        <label class="form-label m-0" for="objetoSocial">Objeto social</label>
-                                        <select class="form-select" id="objetoSocial" name="objetoSocial" aria-label="Objeto social">
-                                            <option selected disabled> --Seleccionar-- </option>                                            
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="row d-flex align-items-end justify-content-center">
-                                    <div class="col-lg-3 col-12">
-                                        <label class="form-label m-0" for="sectorEconomico">Sector económico</label>
-                                        <select class="form-select" id="sectorEconomico" name="sectorEconomico" aria-label="Sector economico">
-                                            <option selected disabled> --Seleccionar-- </option>
-
-                                        </select>
-                                    </div>
-                                    <div class="col-lg-3 col-12">
-                                        <label class="form-label m-0" for="opcionesSectorEco" id="opcionSectorEco">Sector</label>
-                                        <select class="form-select" id="opcionesSectorEco" name="opcionesSectorEco" aria-label="Opcion sector economico">
-                                            <option selected disabled> --Seleccionar-- </option>
-                                        </select>
-                                    </div>
-                                    <div class="col-lg-3 col-12">
-                                        <label class="form-label m-0" for="propietarios">Propietarios</label>
-                                        <select class="form-select" id="propietarios" name="propietarios" aria-label="Propietarios">
-                                            <option value="">Persona natural</option>
-                                            <option value="">Persona jurídica</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-lg-3 col-12">
-                                        <label class="form-label m-0" for="sectorEconomico">Persona - <?php echo " Aqui php" ?></label>
-                                        <select class="form-select" id="sectorEconomico" name="sectorEconomico" aria-label="Sector economico">
-                                            <option value="">Colectiva</option>
-                                            <option value="">Sociedad limitada</option>
-                                            <option value="">Sociedad anónima</option>
-                                            <option value="">Sociedad por acción simplificada</option>
-                                            <option value="">Sociedad comandita simple</option>
-                                            <option value="">Sociedad comandita por acciones</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- card tipo producto -->
-                        <div class="card">
-                            <div class="card-header">
-                                <div class="subheading">Tipo de producto</div>
-                            </div>
-                            <div class="card-body">
-                                <div class="row d-flex align-items-end">
-                                    <div class="col-lg-3 col-sm-12">
-                                        <label class="form-label m-0" for="tangibles">Tangibles</label>
-                                        <select class="form-select" id="tangibles" name="tangibles" aria-label="Tangibles">
-                                            <option value="">Bienes de consumo</option>
-                                            <option value="">Bienes industriales</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-lg-4 col-sm-12">
-                                        <label class="form-label m-0" for="intangibles">Intangibles</label>
-                                        <select class="form-select" id="intangibles" name="intangibles" aria-label="Intangibles">
-                                            <option value="">Acción tangible orientado a personas</option>
-                                            <option value="">Acción tangible orientado a cosas</option>
-                                            <option value="">Acción intangible orientado a personas</option>
-                                            <option value="">Acción intangible orientado a cosas</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row text-center mt-3">
-                            <div class="col-12">
-                                <button class="btn btn-primary" type="submit">Guardar</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </section>
-        <hr class="m-0" />
+        
 
         <!-- --------------------------------------------Sistema general---------------------------------------------------------- -->
         <section class="resume-section" id="sistemaGeneral">
@@ -187,24 +83,26 @@
                 <!-- <button onclick="prueba()">prueba</button> -->
                 <div class="container">
                     <form action="" method="post" id="sistemaGeneral">
-                        <!-- card tipo empresa -->
+
+
+                        <!-- card gestion por procesos -->
                         <div class="card mb-3">
                             <div class="card-header">
                                 <div class="subheading m2">Gestion por Procesos</div>
                             </div>
                             <div class="card-body">
                                 <div class="row d-flex justify-content-between mb-3">
-                                    <div class="col-lg-4 col-sm-12 border-start px-3" id="mapaProcesos">
-                                        <h5>Mapa de Procesos</h5>
+                                    <div class="col-lg-4 col-sm-12 border-start border-end px-3" id="mapaProcesos">
+                                        <h5 class="text-center">Mapa de Procesos</h5>
                                         <!-- mapa de procesos llamado en js -->
                                     </div>
-                                    <div class="col-lg-8 col-sm-12 border-start px-3 " id="">
-                                        <h5>Caracterizaciones</h5>
+                                    <div class="col-lg-8 col-sm-12 border-start border-end px-3 " id="">
+                                        <h5 class="text-center mb-2">Caracterizaciones</h5>
                                         <div class="row">
                                         <div class="col-md-6 col-12 d-flex flex-column" id="caracterizacionesCol1">
                                             <!-- condicion colA -->
                                         </div>
-                                        <div class="col-md-6 col-12 d-flex flex-column border-start" id="caracterizacionesCol2">
+                                        <div class="col-md-6 col-12 d-flex flex-column" id="caracterizacionesCol2">
                                             <!-- condicion colB -->
                                         </div>
                                     </div>
@@ -212,6 +110,257 @@
                                 </div>
                             </div>
                         </div>
+
+                        <hr class="m-0" />
+
+                        <!-- card planeacion estrategica -->
+                        <div class="card mb-3">
+                            <div class="card-header">
+                                <div class="subheading m2">Planeacion Estrategica</div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row d-flex justify-content-between mb-3">
+                                    <div class="border-start border-end px-3 " id="">
+                                        <div class="row">
+                                        <div class="col-md-6 col-12 d-flex flex-column" id="desplieguePlaneacionECol1">
+                                            <!-- condicion colA -->
+                                        </div>
+                                        <div class="col-md-6 col-12 d-flex flex-column" id="desplieguePlaneacionECol2">
+                                            <!-- condicion colB -->
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="m-0" />
+
+
+                        <!-- card partes interesadas -->
+                        <div class="card mb-3">
+                            <div class="card-header">
+                                <div class="subheading m2">Partes Interesadas</div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row d-flex justify-content-between mb-3">
+                                    <div class="border-start border-end px-3 " id="">
+                                        <div class="row">
+                                        <div class="col-md-6 col-12 d-flex flex-column" id="desplieguePartesInteresadasCol1">
+                                            <!-- condicion colA -->
+
+                                        </div>
+                                        <div class="col-md-6 col-12 d-flex flex-column" id="desplieguePartesInteresadasCol2">
+                                            <!-- condicion colB -->
+
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="m-0" />
+
+
+                        <!-- card Alcance -->
+                        <div class="card mb-3">
+                            <div class="card-header">
+                                <div class="subheading m2">Alcance</div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row d-flex justify-content-between mb-3">
+                                    <div class="border-start border-end px-3 " id="">
+                                        <div class="row">
+                                        <div class="col-md-6 col-12 d-flex flex-column" id="depliegueAlcance1">
+                                            <!-- condicion colA -->
+                                        </div>
+                                        <div class="col-md-6 col-12 d-flex flex-column" id="depliegueAlcance2">
+                                            <!-- condicion colB -->
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="m-0" />
+
+                        <!-- card Liderazgo -->
+                        <div class="card mb-3">
+                            <div class="card-header">
+                                <div class="subheading m2">Liderazgo</div>
+                            </div>
+                            <div class="card-body ">
+                                <div class="row d-flex justify-content-between mb-3">
+                                    <div class="border-start border-end px-3 " id="">
+                                        <div class="row">
+                                            <div class="col-md-6 col-12 d-flex flex-column" id="categoriaLiderazgo1">
+                                                <!-- condicion colA -->
+                                            </div>
+                                            <div class="col-md-6 col-12 d-flex flex-column" id="categoriaLiderazgo2">
+                                                <!-- condicion colB -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="m-0" />
+
+
+                        <!-- card riesgos y oportunidades -->
+                        <div class="card mb-3">
+                            <div class="card-header">
+                                <div class="subheading m2">Abordar riesgos y oportunidades</div>
+                            </div>
+                            <div class="card-body ">
+                                <div class="row d-flex justify-content-between mb-3">
+                                    <div class="border-start border-end px-3 " id="">
+                                        <div class="row">
+                                            <div class="col-md-6 col-12 d-flex flex-column" id="DespliegueRiesgos">
+                                                <!-- condicion colA -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="m-0" />
+
+                        <!-- card objetivos-->
+                        <div class="card mb-3">
+                            <div class="card-header">
+                                <div class="subheading m2">Objetivos</div>
+                            </div>
+                            <div class="card-body ">
+                                <div class="row d-flex justify-content-between mb-3">
+                                    <div class="border-start border-end px-3 " id="">
+                                        <div class="row">
+                                            <div class="col-md-6 col-12 d-flex flex-column" id="DespliegueObjetivos">
+                                                <!-- condicion colA -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="m-0" />
+
+                        <!-- card planificacion de cambios-->
+                        <div class="card mb-3">
+                            <div class="card-header">
+                                <div class="subheading m2">Planificación de los cambios</div>
+                            </div>
+                            <div class="card-body ">
+                                <div class="row d-flex justify-content-between mb-3">
+                                    <div class="border-start border-end px-3 " id="">
+                                        <div class="row">
+                                            <div class="col-md-6 col-12 d-flex flex-column" id="DespliegueObjetivos">
+                                                <!-- condicion colA -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="m-0" />
+
+                        <!-- card  recursos-->
+                        <div class="card mb-3">
+                            <div class="card-header">
+                                <div class="subheading m2">Recursos</div>
+                            </div>
+                            <div class="card-body ">
+                                <div class="row d-flex justify-content-between mb-3">
+                                    <div class="border-start border-end px-3 " id="">
+                                        <div class="row">
+                                            <div class="mb-5">
+                                                <div class="row" id="Recursos">
+
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 col-12 d-flex flex-column border-end" id="RecursosCol1">
+                                                <!-- condicion colA -->
+                                                <h5 class="text-center">Personas</h5>
+                                            </div>
+                                            <div class="col-md-3 col-12 d-flex flex-column border-end" id="RecursosCol2">
+                                                <!-- condicion colB -->
+                                                <h5 class="text-center">Infraestructura</h5>
+                                            </div>
+                                            <div class="col-md-3 col-12 d-flex flex-column border-end" id="RecursosCol3">
+                                                <!-- condicion colC -->
+                                                <h5 class="text-center">Recursos de seguimiento y medicion</h5>
+                                            </div>
+                                            <div class="col-md-3 col-12 d-flex flex-column" id="RecursosCol4">
+                                                <!-- condicion colD -->
+                                                <h5 class="text-center">Informacion documentada</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="m-0" />
+
+
+                        <!-- card  evaluacion de desempeño-->
+                        <div class="card mb-3">
+                            <div class="card-header">
+                                <div class="subheading m2">Evaluación del desempeño</div>
+                            </div>
+                            <div class="card-body ">
+                                <div class="row d-flex justify-content-between mb-3">
+                                    <div class="border-start border-end px-3 " id="">
+                                        <div class="row">
+                                            <div class="mb-5">
+                                                <div class="row" id="Evaluacion">
+
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 col-12 d-flex flex-column border-end" id="EvaluacionCol1">
+                                                <!-- condicion colA -->
+                                                <h5 class="text-center">Seguimiento, medición, análisis y evaluación</h5>
+                                            </div>
+                                            <div class="col-md-3 col-12 d-flex flex-column border-end" id="EvaluacionCol2">
+                                                <!-- condicion colB -->
+                                                <h5 class="text-center">Análisis  y evaluación</h5>
+                                            </div>
+                                            <div class="col-md-3 col-12 d-flex flex-column border-end" id="EvaluacionCol3">
+                                                <!-- condicion colC -->
+                                                <h5 class="text-center">Auditoría Interna</h5>
+                                            </div>
+                                            <div class="col-md-3 col-12 d-flex flex-column" id="EvaluacionCol4">
+                                                <!-- condicion colD -->
+                                                <h5 class="text-center">Revisión por la dirección</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="m-0" />
+
+                        <!-- card mejora -->
+                        <div class="card mb-3">
+                            <div class="card-header">
+                                <div class="subheading m2">Mejora</div>
+                            </div>
+                            <div class="card-body ">
+                                <div class="row d-flex justify-content-between mb-3">
+                                    <div class="border-start border-end px-3 " id="">
+                                        <div class="row">
+                                            <div class="col-md-12 col-12 d-flex" id="DespliegueMejora">
+                                                <!-- condicion colA -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="m-0" />
+
+
                         <div class="row text-center mt-3">
                             <div class="col-12">
                                 <button class="btn btn-primary" type="submit">Guardar</button>
@@ -221,8 +370,216 @@
                 </div>
             </div>
         </section>
-        <!-- ------------------------------------------------ -fin sistema general--------------------------------------------------- -->
         <hr class="m-0" />
+        
+        <!-- ------------------------------------------------ -fin sistema general--------------------------------------------------- -->
+        <!-- ------------------------------------------------ -Sistema de gestion SST--------------------------------------------------- -->
+        <section class="resume-section" id="sistemaGSST">
+            <div class="resume-section-content">
+                <h2 class="mb-3">Sistema De Gestion SST (seguridad y salud en el trabajo) </h2>
+                <!-- <button onclick="prueba()">prueba</button> -->
+                <div class="container">
+                    <form action="" method="post" id="sistemaGestionSST">
+
+
+                        <!-- card Asignación de responsabilidad SG-SST -->
+                        <div class="card mb-3">
+                            <div class="card-header">
+                                <div class="subheading m2">Asignación de responsabilidad</div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row d-flex justify-content-between mb-3">
+                                    <div class="col-12 border-start border-end px-3" id="categoriaAsignacion">
+                                        <h5>Persona que diseñe e implemente el SG-SST</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+
+                        <hr class="m-0" />
+
+                        <!-- card Afilicacion al sistema SG-SST -->
+                        <div class="card mb-3">
+                            <div class="card-header">
+                                <div class="subheading m2">Afiliación al sistema de seguridad social integral</div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row d-flex justify-content-between mb-3">
+                                    <div class="col-12 border-start border-end px-3">
+                                        <h5>Nivel de riesgo </h5>
+                                        <div class="row row-cols-5 ms-2" id="categoriaRiesgo">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="m-0" />
+
+                        <!-- card Comités y programas de capacitación -->
+                        <div class="card mb-3">
+                            <div class="card-header">
+                                <div class="subheading m2">Comités y programas de capacitación</div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row d-flex justify-content-between mb-3">
+                                    <div class="col-12 border-start border-end px-3">
+                                        <div class="row row-cols-5 ms-2" id="variablesComites">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="m-0" />
+
+                        <!-- card Accidentes de trabajo y enfermedad laboral  -->
+                        <div class="card mb-3">
+                            <div class="card-header">
+                                <div class="subheading m2">Accidentes de trabajo y enfermedad laboral </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row d-flex justify-content-between mb-3">
+                                    <div class="border-start border-end px-3 " id="">
+                                        <div class="row">
+                                            <div class="col-md-6 col-12 d-flex flex-column" id="AccidenteEnfermedad1">
+                                                <!-- condicion colA -->
+                                            </div>
+                                            <div class="col-md-6 col-12 d-flex flex-column" id="AccidenteEnfermedad2">
+                                                <!-- condicion colB -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <hr class="m-0" />
+
+                        <!-- card  Identificación de peligros, evaluación y valoración de riesgos-->
+                        <div class="card mb-3">
+                            <div class="card-header">
+                                <div class="subheading m2">Identificación de peligros, evaluación y valoración de riesgos</div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row d-flex justify-content-between mb-3">
+                                    <div class="border-start border-end px-3 " id="">
+                                        <div class="row">
+                                            <div class="col-md-6 col-12 d-flex flex-column border-end" id="IdentificacionPeligros1">
+                                                <!-- condicion colA -->
+                                                <h5>Matriz de peligros y riesgos (Identificación y controles)</h5>
+                                            </div>
+                                            <div class="col-md-6 col-12 d-flex flex-column border-start" id="IdentificacionPeligros2">
+                                                <!-- condicion colB -->
+                                                <h5>Prevención y control de peligros y riesgos </h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <hr class="m-0" />
+
+                        <!-- card Respuesta ante emergencias -->
+                        <div class="card mb-3">
+                            <div class="card-header">
+                                <div class="subheading m2">Respuesta ante emergencias</div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row d-flex justify-content-between mb-3">
+                                    <div class="border-start border-end px-3 " id="">
+                                        <div class="row">
+                                            <div class="col-md-12 col-12 d-flex flex-column" >
+                                                <!-- condicion colA -->
+                                                <div class="row row-cols-3 ms-2" id="RespuestasEmergencia">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <hr class="m-0" />
+
+                        <!-- card Descripción sociodemográfica y diagnóstico de las condiciones de salud de los trabajadores-->
+                        <div class="card mb-3">
+                            <div class="card-header">
+                                <div class="subheading m2">Descripción sociodemográfica y diagnóstico de las condiciones de salud de los trabajadores</div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row d-flex justify-content-between mb-3">
+                                    <div class="border-start border-end px-3 " id="">
+                                        <div class="row">
+                                            <div class="col-md-12 col-12 d-flex flex-column" >
+                                                <!-- condicion colA -->
+                                                <h5>Medicina del trabajo, prevención y promoción de la salud </h5>
+                                                <div class="row row-cols-4 ms-2" id="DescripcionDiagnostico">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <hr class="m-0" />
+
+
+                        <!-- card Sistema de gestión de SST-->
+                        <div class="card mb-3">
+                            <div class="card-header">
+                                <div class="subheading m2">Sistema de gestión de SST</div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row d-flex justify-content-between mb-3">
+                                    <div class="border-start border-end px-3 " id="">
+                                        <div class="row">
+                                            <div class="col-md-12 col-12 d-flex flex-column" >
+                                                <!-- condicion colA -->
+                                                <div class="row row-cols-3 ms-2" id="DespliegueSST">
+
+                                                </div>
+                                                <h5 class="mt-3">Definición de indicadores del SG-SST</h5>
+                                                <div class="row row-cols-3 ms-2" id="CategoriaSST">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <hr class="m-0" />
+
+                        
+
+
+                        
+
+                        
+
+                        <div class="row text-center mt-3">
+                            <div class="col-12">
+                                <button class="btn btn-primary" type="submit">Guardar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <hr class="m-0" />
+
+
+
+
 
         <!-- Education-->
         <section class="resume-section" id="education">
@@ -355,7 +712,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
-    <script src="js/magic.js"></script>
     <script src="js/js_sistemaGeneral.js"></script>
 </body>
 
