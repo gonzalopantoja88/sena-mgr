@@ -199,7 +199,7 @@ function productoTangible(data) {
           for (const value of data) {
             bienes.removeAttribute("disabled", "");
             bienes.setAttribute("active", "");
-            bienes.innerHTML += `<option value=">${value.nombreOpcion}">${value.nombreOpcion}</option>`;
+            bienes.innerHTML += `<option value="${value.nombreOpcion}">${value.nombreOpcion}</option>`;
             texthtml = value.nombreCategoria;
           }
         } else {
@@ -343,13 +343,13 @@ formularioEmpresa.addEventListener("submit", (e) => {
 
   const datosEmpresa = new FormData(formularioEmpresa);
   // console.log(datos.get('tipo_id_riesgo')
- console.log([...datosEmpresa.keys()]);
+ console.log([...datosEmpresa]);
 
 
-  // fetch("./insertar_riesgo.php", {
-  //   method: "POST",
-  //   body: datosEmpresa,
-  // });
+  fetch("./insertar_contexto_empresa.php", {
+    method: "POST",
+    body: datosEmpresa,
+  });
 });
 /////////// FIN CONTEXTO EMPRESA /////////////
 
