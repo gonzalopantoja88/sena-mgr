@@ -1,6 +1,6 @@
 <hr class="m-0" />
         <!-- Empresa-->
-        <section class="resume-section" id="empresa">
+        <section class="resume-section" id="contextoEmpresa">
             <div class="resume-section-content">
                 <h2 class="mb-3">Información Empresa</h2>
                 <div class="container">
@@ -116,7 +116,7 @@
                                 <div class="row">
                                     <div class="col-lg-6 col-sm-12" >
                                         <div class="row">
-                                            <label class="form-label m-0" for="normaTec">Imagen empresarial</label>
+                                            <label class="form-label m-0">Imagen empresarial</label>
                                         </div>
                                         <div class="d-flex flex-row" id="imgEmp">
                                             <!-- condicion imagen empresarial -->
@@ -124,7 +124,7 @@
                                     </div>
                                     <div class="col-lg-6 col-sm-12" id="normaTecnica">
                                         <label class="form-label m-0" for="normaTec">Norma técnica</label>
-                                        <select class="form-select" id="normaTec" name="normaTec" aria-label="Norma tecnica">
+                                        <select class="form-select" id="normaTec" name="normatecnica" aria-label="Norma tecnica">
                                             <option selected disabled> --Seleccionar-- </option>
                                         </select>
                                     </div>
@@ -176,3 +176,4 @@
             </div>
         </section>
         <hr class="m-0" />
+ 

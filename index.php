@@ -31,12 +31,11 @@
             <ul class="navbar-nav">
                 <hr class="text-black">
                 <h4>Definir contexto</h4>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#empresa">Empresa</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contextoEmpresa">Empresa</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#sistemaGeneral">Sistema general</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#sistemaCalidad">SGC</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experience">SGA</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experience">SST</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#pruebaFormulario">PRUEBA FORMULARIO</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#sgc">SGC</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#sga">SGA</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#sst">SST</a></li>
                 <hr class="text-black">
                 <h4>Identificar riesgo</h4>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#identificacionRiesgo">Identificar riesgo</a></li>
@@ -74,17 +73,22 @@
         </section>
         
         <!-- seccion contexto empresa -->
-        <?php include_once('./views/empresa.php'); ?>
+        <?php include_once('./views/contexto_empresa.php'); ?>
 
         <!-- seccion sistema general -->
         <?php include_once('./views/sistema_general.php'); ?>
 
         <!-- seccion sistema gestion calidad -->
-        <?php include_once('./views/sistema_calidad.php'); ?>
+        <?php include_once('./views/sgc.php'); ?>
+
+        <!-- seccion sistema gestion calidad -->
+        <?php include_once('./views/sga.php'); ?>
+
+        <!-- seccion sistema gestion calidad -->
+        <?php include_once('./views/sst.php'); ?>
 
         <!-- seccion identificacion riesgo -->
         <?php include_once('./views/identificacion_riesgo.php'); ?>
-
 
         <!-- Education-->
         <section class="resume-section" id="education">
@@ -218,7 +222,6 @@
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
     <script src="js/magic.js"></script>
-    <!-- <script src="test.js"></script> -->
 </body>
 
 </html>

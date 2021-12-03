@@ -2,10 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Nov 18, 2021 at 06:30 PM
+-- Host: 127.0.0.1
+-- Generation Time: Dec 03, 2021 at 05:38 PM
 -- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.10
+-- PHP Version: 8.0.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,20 +24,20 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Categoria`
+-- Table structure for table `categoria`
 --
 
-CREATE TABLE `Categoria` (
+CREATE TABLE `categoria` (
   `ID_Categoria` smallint(5) UNSIGNED NOT NULL,
   `nombreCategoria` varchar(100) DEFAULT NULL,
   `ID_FK_Despliegue` smallint(5) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `Categoria`
+-- Dumping data for table `categoria`
 --
 
-INSERT INTO `Categoria` (`ID_Categoria`, `nombreCategoria`, `ID_FK_Despliegue`) VALUES
+INSERT INTO `categoria` (`ID_Categoria`, `nombreCategoria`, `ID_FK_Despliegue`) VALUES
 (1, 'Privada', 1),
 (2, 'Publica', 1),
 (3, 'Mixta', 1),
@@ -249,20 +249,85 @@ INSERT INTO `Categoria` (`ID_Categoria`, `nombreCategoria`, `ID_FK_Despliegue`) 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Despliegue`
+-- Table structure for table `contexto_empresa`
 --
 
-CREATE TABLE `Despliegue` (
+CREATE TABLE `contexto_empresa` (
+  `id_contexto_empresa` int(5) NOT NULL,
+  `origen_capital` varchar(40) DEFAULT NULL,
+  `dimension` varchar(40) DEFAULT NULL,
+  `objeto_social` varchar(40) DEFAULT NULL,
+  `sector_economico` varchar(40) DEFAULT NULL,
+  `opcion_sector_eco` varchar(40) DEFAULT NULL,
+  `propietario` varchar(40) DEFAULT NULL,
+  `tipo_persona` varchar(40) DEFAULT NULL,
+  `tangible` varchar(40) DEFAULT NULL,
+  `bienes` varchar(40) DEFAULT NULL,
+  `intangible` varchar(40) DEFAULT NULL,
+  `norma_tecnica` varchar(40) DEFAULT NULL,
+  `identificacion` varchar(4) DEFAULT NULL,
+  `duracion` varchar(4) DEFAULT NULL,
+  `ctrc_microbiologicas` varchar(4) DEFAULT NULL,
+  `restricciones` varchar(4) DEFAULT NULL,
+  `empaque` varchar(4) DEFAULT NULL,
+  `destino_final` varchar(4) DEFAULT NULL,
+  `descripcion` varchar(4) DEFAULT NULL,
+  `ctrc_fisicas` varchar(4) DEFAULT NULL,
+  `forma_uso` varchar(4) DEFAULT NULL,
+  `condicion_manejo` varchar(4) DEFAULT NULL,
+  `etiquetado` varchar(4) DEFAULT NULL,
+  `composicion` varchar(4) DEFAULT NULL,
+  `ctrc_quimica` varchar(4) DEFAULT NULL,
+  `usuarios_potenciales` varchar(4) DEFAULT NULL,
+  `condicion_conservacion` varchar(4) DEFAULT NULL,
+  `presentacion` varchar(4) DEFAULT NULL,
+  `logotipo` varchar(4) DEFAULT NULL,
+  `marca` varchar(4) DEFAULT NULL,
+  `eslogan` varchar(4) DEFAULT NULL,
+  `analisis_competencia` varchar(4) DEFAULT NULL,
+  `presupuesto_venta` varchar(4) DEFAULT NULL,
+  `blog` varchar(4) DEFAULT NULL,
+  `mercadolibre` varchar(4) DEFAULT NULL,
+  `olx` varchar(4) DEFAULT NULL,
+  `precio` varchar(4) DEFAULT NULL,
+  `venta_directa` varchar(4) DEFAULT NULL,
+  `facebook` varchar(4) DEFAULT NULL,
+  `amazon` varchar(4) DEFAULT NULL,
+  `promocion` varchar(4) DEFAULT NULL,
+  `web` varchar(4) DEFAULT NULL,
+  `instagram` varchar(4) DEFAULT NULL,
+  `e_bay` varchar(4) DEFAULT NULL,
+  `servicio_cliente` varchar(4) DEFAULT NULL,
+  `fidelizacion_cliente` varchar(4) DEFAULT NULL,
+  `pqrsf` varchar(4) DEFAULT NULL,
+  `identificacion_cliente` varchar(4) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `contexto_empresa`
+--
+
+INSERT INTO `contexto_empresa` (`id_contexto_empresa`, `origen_capital`, `dimension`, `objeto_social`, `sector_economico`, `opcion_sector_eco`, `propietario`, `tipo_persona`, `tangible`, `bienes`, `intangible`, `norma_tecnica`, `identificacion`, `duracion`, `ctrc_microbiologicas`, `restricciones`, `empaque`, `destino_final`, `descripcion`, `ctrc_fisicas`, `forma_uso`, `condicion_manejo`, `etiquetado`, `composicion`, `ctrc_quimica`, `usuarios_potenciales`, `condicion_conservacion`, `presentacion`, `logotipo`, `marca`, `eslogan`, `analisis_competencia`, `presupuesto_venta`, `blog`, `mercadolibre`, `olx`, `precio`, `venta_directa`, `facebook`, `amazon`, `promocion`, `web`, `instagram`, `e_bay`, `servicio_cliente`, `fidelizacion_cliente`, `pqrsf`, `identificacion_cliente`) VALUES
+(3, 'Privada', 'Microempresa', 'Con animo de lucro', 'Sector secundario', 'Industrial de transformación', 'Personas jurídicas', 'Sociedad anónima', 'Bienes de consumo', 'Duraderos', 'Acción tangible orientado a las cosas', NULL, 'Iden', 'Dura', 'Cara', 'Rest', 'Empa', 'Dest', 'Desc', 'Cara', 'Form', 'Cond', 'Etiq', 'Comp', 'Cara', 'Usua', 'Cond', 'Pres', 'Logo', 'Marc', 'Eslo', 'Anál', 'Pres', 'Blog', 'Merc', 'OLX', 'Prec', 'Vent', 'Face', 'Amaz', 'Prom', 'Web', 'Inst', 'E-ba', 'Serv', 'Fide', 'PQRS', 'Iden'),
+(4, 'Publica', 'Microempresa', 'Con animo de lucro', 'Sector secundario', 'Industrial de transformación', 'Personas jurídicas', 'Colectiva', 'Bienes de consumo', 'Duraderos', 'Acción tangible orientado a las personas', 'Aplica', 'Iden', 'Dura', 'Cara', 'Rest', 'Empa', 'Dest', 'Desc', 'Cara', 'Form', 'Cond', 'Etiq', 'Comp', 'Cara', 'Usua', 'Cond', 'Pres', 'Logo', 'Marc', 'Eslo', 'Anál', 'Pres', 'Blog', 'Merc', 'OLX', 'Prec', 'Vent', 'Face', 'Amaz', 'Prom', 'Web', 'Inst', 'E-ba', 'Serv', 'Fide', 'PQRS', 'Iden');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `despliegue`
+--
+
+CREATE TABLE `despliegue` (
   `ID_Despliegue` smallint(5) UNSIGNED NOT NULL,
   `nombreDespliegue` varchar(100) DEFAULT NULL,
   `ID_FK_Variable` smallint(5) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `Despliegue`
+-- Dumping data for table `despliegue`
 --
 
-INSERT INTO `Despliegue` (`ID_Despliegue`, `nombreDespliegue`, `ID_FK_Variable`) VALUES
+INSERT INTO `despliegue` (`ID_Despliegue`, `nombreDespliegue`, `ID_FK_Variable`) VALUES
 (1, 'Según origen capital', 1),
 (2, 'Según tamaño', 1),
 (3, 'Objeto social', 1),
@@ -434,20 +499,88 @@ INSERT INTO `Despliegue` (`ID_Despliegue`, `nombreDespliegue`, `ID_FK_Variable`)
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Opcion`
+-- Table structure for table `empresa`
 --
 
-CREATE TABLE `Opcion` (
+CREATE TABLE `empresa` (
+  `id_empresa` smallint(3) NOT NULL,
+  `nombre_empresa` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `empresa`
+--
+
+INSERT INTO `empresa` (`id_empresa`, `nombre_empresa`) VALUES
+(1, 'nissan'),
+(2, 'ford');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `factorriesgo`
+--
+
+CREATE TABLE `factorriesgo` (
+  `ID_FactorRiesgo` smallint(2) NOT NULL,
+  `nombreFactorRiesgo` varchar(40) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `factorriesgo`
+--
+
+INSERT INTO `factorriesgo` (`ID_FactorRiesgo`, `nombreFactorRiesgo`) VALUES
+(1, 'Procesos'),
+(2, 'Talento humano'),
+(3, 'Tecnología'),
+(4, 'Infraestructura');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `identificacionriesgo`
+--
+
+CREATE TABLE `identificacionriesgo` (
+  `ID_Riesgo` int(10) NOT NULL,
+  `tipo` varchar(40) DEFAULT NULL,
+  `proceso` varchar(200) DEFAULT NULL,
+  `objetivo` varchar(200) DEFAULT NULL,
+  `actividadCritica` varchar(200) DEFAULT NULL,
+  `sistemaAsociado` varchar(40) DEFAULT NULL,
+  `variable` varchar(40) DEFAULT NULL,
+  `factorRiesgo` varchar(40) DEFAULT NULL,
+  `riesgo` varchar(200) DEFAULT NULL,
+  `descripcion` varchar(200) DEFAULT NULL,
+  `causaRaiz` varchar(200) DEFAULT NULL,
+  `consecuencias` varchar(200) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `identificacionriesgo`
+--
+
+INSERT INTO `identificacionriesgo` (`ID_Riesgo`, `tipo`, `proceso`, `objetivo`, `actividadCritica`, `sistemaAsociado`, `variable`, `factorRiesgo`, `riesgo`, `descripcion`, `causaRaiz`, `consecuencias`) VALUES
+(1, 'Misionales', 'proceso riesgo', 'objetivo riesgo', 'actividad riesgo', 'Sistema de gestión de SST', 'Matriz Legal SST', 'Talento humano', 'concepto riesgo', 'descripcion riesgo', 'causa riesgo', 'consecuencia riesgo');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `opcion`
+--
+
+CREATE TABLE `opcion` (
   `ID_Opcion` smallint(5) UNSIGNED NOT NULL,
   `nombreOpcion` varchar(100) DEFAULT NULL,
   `ID_FK_Categoria` smallint(5) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `Opcion`
+-- Dumping data for table `opcion`
 --
 
-INSERT INTO `Opcion` (`ID_Opcion`, `nombreOpcion`, `ID_FK_Categoria`) VALUES
+INSERT INTO `opcion` (`ID_Opcion`, `nombreOpcion`, `ID_FK_Categoria`) VALUES
 (1, 'Industrial de transformación', 11),
 (2, 'Industrial extractivo', 11),
 (3, 'Comercial', 12),
@@ -510,19 +643,19 @@ INSERT INTO `Opcion` (`ID_Opcion`, `nombreOpcion`, `ID_FK_Categoria`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `SistemaAsociado`
+-- Table structure for table `sistemaasociado`
 --
 
-CREATE TABLE `SistemaAsociado` (
+CREATE TABLE `sistemaasociado` (
   `ID_SistemaAsosiado` tinyint(3) UNSIGNED NOT NULL,
   `nombreSistemaAsociado` varchar(70) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `SistemaAsociado`
+-- Dumping data for table `sistemaasociado`
 --
 
-INSERT INTO `SistemaAsociado` (`ID_SistemaAsosiado`, `nombreSistemaAsociado`) VALUES
+INSERT INTO `sistemaasociado` (`ID_SistemaAsosiado`, `nombreSistemaAsociado`) VALUES
 (1, 'Empresa'),
 (2, 'Sistema general'),
 (3, 'Sistema de gestión de calidad'),
@@ -532,20 +665,20 @@ INSERT INTO `SistemaAsociado` (`ID_SistemaAsosiado`, `nombreSistemaAsociado`) VA
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Variable`
+-- Table structure for table `variable`
 --
 
-CREATE TABLE `Variable` (
+CREATE TABLE `variable` (
   `ID_Variable` smallint(5) UNSIGNED NOT NULL,
   `nombreVariable` varchar(100) DEFAULT NULL,
   `ID_FK_SistemaAsociado` tinyint(3) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `Variable`
+-- Dumping data for table `variable`
 --
 
-INSERT INTO `Variable` (`ID_Variable`, `nombreVariable`, `ID_FK_SistemaAsociado`) VALUES
+INSERT INTO `variable` (`ID_Variable`, `nombreVariable`, `ID_FK_SistemaAsociado`) VALUES
 (1, 'Tipo de empresa', 1),
 (2, 'Tipo de producto', 1),
 (3, 'Ficha técnica', 1),
@@ -597,36 +730,60 @@ INSERT INTO `Variable` (`ID_Variable`, `nombreVariable`, `ID_FK_SistemaAsociado`
 --
 
 --
--- Indexes for table `Categoria`
+-- Indexes for table `categoria`
 --
-ALTER TABLE `Categoria`
+ALTER TABLE `categoria`
   ADD PRIMARY KEY (`ID_Categoria`),
   ADD KEY `ID_FK_Despliegue` (`ID_FK_Despliegue`);
 
 --
--- Indexes for table `Despliegue`
+-- Indexes for table `contexto_empresa`
 --
-ALTER TABLE `Despliegue`
+ALTER TABLE `contexto_empresa`
+  ADD PRIMARY KEY (`id_contexto_empresa`);
+
+--
+-- Indexes for table `despliegue`
+--
+ALTER TABLE `despliegue`
   ADD PRIMARY KEY (`ID_Despliegue`),
   ADD KEY `ID_FK_Variable` (`ID_FK_Variable`);
 
 --
--- Indexes for table `Opcion`
+-- Indexes for table `empresa`
 --
-ALTER TABLE `Opcion`
+ALTER TABLE `empresa`
+  ADD PRIMARY KEY (`id_empresa`);
+
+--
+-- Indexes for table `factorriesgo`
+--
+ALTER TABLE `factorriesgo`
+  ADD PRIMARY KEY (`ID_FactorRiesgo`);
+
+--
+-- Indexes for table `identificacionriesgo`
+--
+ALTER TABLE `identificacionriesgo`
+  ADD PRIMARY KEY (`ID_Riesgo`);
+
+--
+-- Indexes for table `opcion`
+--
+ALTER TABLE `opcion`
   ADD PRIMARY KEY (`ID_Opcion`),
   ADD KEY `ID_FK_Categoria` (`ID_FK_Categoria`);
 
 --
--- Indexes for table `SistemaAsociado`
+-- Indexes for table `sistemaasociado`
 --
-ALTER TABLE `SistemaAsociado`
+ALTER TABLE `sistemaasociado`
   ADD PRIMARY KEY (`ID_SistemaAsosiado`);
 
 --
--- Indexes for table `Variable`
+-- Indexes for table `variable`
 --
-ALTER TABLE `Variable`
+ALTER TABLE `variable`
   ADD PRIMARY KEY (`ID_Variable`),
   ADD KEY `ID_FK_SistemaAsociado` (`ID_FK_SistemaAsociado`);
 
@@ -635,33 +792,57 @@ ALTER TABLE `Variable`
 --
 
 --
--- AUTO_INCREMENT for table `Categoria`
+-- AUTO_INCREMENT for table `categoria`
 --
-ALTER TABLE `Categoria`
+ALTER TABLE `categoria`
   MODIFY `ID_Categoria` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=230;
 
 --
--- AUTO_INCREMENT for table `Despliegue`
+-- AUTO_INCREMENT for table `contexto_empresa`
 --
-ALTER TABLE `Despliegue`
+ALTER TABLE `contexto_empresa`
+  MODIFY `id_contexto_empresa` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `despliegue`
+--
+ALTER TABLE `despliegue`
   MODIFY `ID_Despliegue` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=178;
 
 --
--- AUTO_INCREMENT for table `Opcion`
+-- AUTO_INCREMENT for table `empresa`
 --
-ALTER TABLE `Opcion`
+ALTER TABLE `empresa`
+  MODIFY `id_empresa` smallint(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `factorriesgo`
+--
+ALTER TABLE `factorriesgo`
+  MODIFY `ID_FactorRiesgo` smallint(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `identificacionriesgo`
+--
+ALTER TABLE `identificacionriesgo`
+  MODIFY `ID_Riesgo` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `opcion`
+--
+ALTER TABLE `opcion`
   MODIFY `ID_Opcion` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
--- AUTO_INCREMENT for table `SistemaAsociado`
+-- AUTO_INCREMENT for table `sistemaasociado`
 --
-ALTER TABLE `SistemaAsociado`
+ALTER TABLE `sistemaasociado`
   MODIFY `ID_SistemaAsosiado` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `Variable`
+-- AUTO_INCREMENT for table `variable`
 --
-ALTER TABLE `Variable`
+ALTER TABLE `variable`
   MODIFY `ID_Variable` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
@@ -669,28 +850,28 @@ ALTER TABLE `Variable`
 --
 
 --
--- Constraints for table `Categoria`
+-- Constraints for table `categoria`
 --
-ALTER TABLE `Categoria`
-  ADD CONSTRAINT `Categoria_ibfk_1` FOREIGN KEY (`ID_FK_Despliegue`) REFERENCES `Despliegue` (`ID_Despliegue`);
+ALTER TABLE `categoria`
+  ADD CONSTRAINT `Categoria_ibfk_1` FOREIGN KEY (`ID_FK_Despliegue`) REFERENCES `despliegue` (`ID_Despliegue`);
 
 --
--- Constraints for table `Despliegue`
+-- Constraints for table `despliegue`
 --
-ALTER TABLE `Despliegue`
-  ADD CONSTRAINT `Despliegue_ibfk_1` FOREIGN KEY (`ID_FK_Variable`) REFERENCES `Variable` (`ID_Variable`);
+ALTER TABLE `despliegue`
+  ADD CONSTRAINT `Despliegue_ibfk_1` FOREIGN KEY (`ID_FK_Variable`) REFERENCES `variable` (`ID_Variable`);
 
 --
--- Constraints for table `Opcion`
+-- Constraints for table `opcion`
 --
-ALTER TABLE `Opcion`
-  ADD CONSTRAINT `Opcion_ibfk_1` FOREIGN KEY (`ID_FK_Categoria`) REFERENCES `Categoria` (`ID_Categoria`);
+ALTER TABLE `opcion`
+  ADD CONSTRAINT `Opcion_ibfk_1` FOREIGN KEY (`ID_FK_Categoria`) REFERENCES `categoria` (`ID_Categoria`);
 
 --
--- Constraints for table `Variable`
+-- Constraints for table `variable`
 --
-ALTER TABLE `Variable`
-  ADD CONSTRAINT `Variable_ibfk_1` FOREIGN KEY (`ID_FK_SistemaAsociado`) REFERENCES `SistemaAsociado` (`ID_SistemaAsosiado`);
+ALTER TABLE `variable`
+  ADD CONSTRAINT `Variable_ibfk_1` FOREIGN KEY (`ID_FK_SistemaAsociado`) REFERENCES `sistemaasociado` (`ID_SistemaAsosiado`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
